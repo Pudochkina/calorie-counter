@@ -12,8 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.calorie_counter_bmi.controllers.client.DashboardController">
+<AnchorPane prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.calorie_counter_bmi.controllers.client.DashboardController">
    <children>
       <VBox prefHeight="700.0" prefWidth="153.0">
          <children>
@@ -26,7 +25,7 @@
             </AnchorPane>
             <Label text="My Weight" />
             <TextField prefHeight="26.0" prefWidth="122.0" />
-            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="128.0" text="Edit" />
+            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="128.0" text="Edit" textAlignment="CENTER" />
             <Button alignment="BOTTOM_CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="127.0" text="Log Out" />
          </children>
       </VBox>
@@ -80,7 +79,7 @@
                   <TextField layoutX="299.0" layoutY="111.0" />
                   <Label layoutX="299.0" layoutY="82.0" text="Name of the Dish" />
                   <Label layoutX="299.0" layoutY="159.0" text="Amount" />
-                  <Button layoutX="302.0" layoutY="257.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="143.0" text="Add" />
+                  <Button layoutX="302.0" layoutY="257.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="143.0" text="Add" textAlignment="CENTER" />
                   <Text layoutX="469.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• 100 g/ml" />
                   <Spinner layoutX="299.0" layoutY="191.0" />
                   <Label layoutX="335.0" layoutY="39.0" prefHeight="18.0" prefWidth="150.0" text="Add a New Dish" />
@@ -105,7 +104,7 @@
                <children>
                   <Text layoutX="20.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name of the Product" />
                   <TextField layoutX="148.0" layoutY="42.0" prefHeight="26.0" prefWidth="282.0" />
-                  <Button layoutX="385.0" layoutY="199.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="102.0" text="Add" />
+                  <Button layoutX="385.0" layoutY="199.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="102.0" text="Add" textAlignment="CENTER" />
                   <Label layoutX="187.0" layoutY="14.0" text="Want to Add a Product ?" />
                   <TextField layoutX="24.0" layoutY="138.0" prefHeight="26.0" prefWidth="102.0" />
                   <TextField layoutX="148.0" layoutY="138.0" prefHeight="26.0" prefWidth="102.0" />

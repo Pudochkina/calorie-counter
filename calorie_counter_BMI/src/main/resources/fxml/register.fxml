@@ -13,81 +13,82 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="700.0" prefWidth="800.0" styleClass="login_container" stylesheets="@../styles/login.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.calorie_counter_bmi.controllers.RegisterController">
-   <children>
-      <VBox prefHeight="700.0" prefWidth="208.0" styleClass="login_logo_container" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Calorie&#10;Counter" textAlignment="CENTER" />
-         </children>
-      </VBox>
-      <VBox layoutX="232.0" layoutY="32.0" prefHeight="670.0" prefWidth="526.0" styleClass="login_form_container" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="15.0">
-         <children>
-            <Label text="Get Started" />
-            <Label styleClass="error_lbl" />
-            <AnchorPane prefHeight="38.0" prefWidth="442.0" stylesheets="@../styles/login.css">
-               <children>
-                  <RadioButton layoutX="159.0" layoutY="11.0" mnemonicParsing="false" stylesheets="@../styles/radio_button.css" text="Male">
-                     <font>
-                        <Font name="Montserrat-Regular" size="12.0" />
-                     </font>
-                  </RadioButton>
-                  <RadioButton layoutX="302.0" layoutY="11.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="99.0" stylesheets="@../styles/radio_button.css" text="Female">
-                     <font>
-                        <Font name="Montserrat-Regular" size="12.0" />
-                     </font>
-                  </RadioButton>
-               </children>
-            </AnchorPane>
-            <AnchorPane prefHeight="78.0" prefWidth="526.0">
-               <children>
-                  <Label layoutX="25.0" layoutY="10.0" text="Year Of Birth" />
-                  <Spinner editable="true" layoutX="14.0" layoutY="39.0" prefHeight="26.0" prefWidth="119.0" stylesheets="@../styles/spinner.css" />
-                  <Label layoutX="229.0" layoutY="10.0" text="Height" />
-                  <Spinner editable="true" layoutX="380.0" layoutY="39.0" prefHeight="26.0" prefWidth="107.0" stylesheets="@../styles/spinner.css" />
-                  <Label layoutX="410.0" layoutY="10.0" text="Weight" />
-                  <Spinner editable="true" layoutX="198.0" layoutY="39.0" prefHeight="26.0" prefWidth="107.0" stylesheets="@../styles/spinner.css" />
-               </children>
-            </AnchorPane>
-            <Label text="Username" />
-            <TextField promptText="Username" styleClass="input_field">
-               <VBox.margin>
-                  <Insets left="80.0" right="100.0" />
-               </VBox.margin>
-            </TextField>
-            <Label text="Password" />
-            <PasswordField prefWidth="454.0" promptText="Password" styleClass="input_field">
-               <VBox.margin>
-                  <Insets left="80.0" right="100.0" />
-               </VBox.margin></PasswordField>
-            <AnchorPane nodeOrientation="RIGHT_TO_LEFT" prefHeight="17.0" prefWidth="363.0">
-               <children>
-                  <CheckBox layoutX="94.0" layoutY="1.0" mnemonicParsing="false" stylesheets="@../styles/check_box.css" text="Show Password" textAlignment="RIGHT" AnchorPane.rightAnchor="313.2">
-                     <opaqueInsets>
-                        <Insets left="8.0" right="8.0" />
-                     </opaqueInsets>
-                     <font>
-                        <Font name="Montserrat-Regular" size="12.0" />
-                     </font>
-                  </CheckBox>
-               </children>
-               <padding>
-                  <Insets left="8.0" right="8.0" />
-               </padding>
-            </AnchorPane>
-            <Label text="Confirm Password">
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </Label>
-            <PasswordField promptText="Confirm Password" styleClass="input_field">
-               <VBox.margin>
-                  <Insets left="80.0" right="100.0" />
-               </VBox.margin></PasswordField>
-            <Button mnemonicParsing="false" text="Register" />
-            <Button mnemonicParsing="false" styleClass="button_clear" text="Clear" />
-            <Label text="Already have an account?" />
-            <Button mnemonicParsing="false" text="Log In" />
-         </children>
-      </VBox>
-   </children>
+<AnchorPane prefHeight="700.0" prefWidth="800.0" styleClass="login_container" stylesheets="@../styles/login.css"
+            xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.calorie_counter_bmi.controllers.RegisterController">
+   <VBox prefHeight="700.0" prefWidth="208.0" styleClass="login_logo_container" AnchorPane.bottomAnchor="0.0"
+         AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Calorie&#10;Counter" textAlignment="CENTER"/>
+   </VBox>
+   <VBox layoutX="232.0" layoutY="32.0" prefHeight="670.0" prefWidth="526.0" styleClass="login_form_container"
+         AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="15.0">
+      <Label text="Get Started"/>
+      <Label styleClass="error_lbl"/>
+      <AnchorPane prefHeight="38.0" prefWidth="442.0" stylesheets="@../styles/login.css">
+         <RadioButton fx:id="male_radio_btn" layoutX="159.0" layoutY="11.0" mnemonicParsing="false"
+                      stylesheets="@../styles/radio_button.css" text="Male">
+            <font>
+               <Font name="Montserrat-Regular" size="12.0"/>
+            </font>
+         </RadioButton>
+         <RadioButton fx:id="female_radio_btn" layoutX="302.0" layoutY="11.0" mnemonicParsing="false"
+                      prefHeight="19.0" prefWidth="99.0" stylesheets="@../styles/radio_button.css" text="Female">
+            <font>
+               <Font name="Montserrat-Regular" size="12.0"/>
+            </font>
+         </RadioButton>
+      </AnchorPane>
+      <AnchorPane prefHeight="78.0" prefWidth="526.0">
+         <Label layoutX="25.0" layoutY="10.0" text="Year Of Birth"/>
+         <Spinner fx:id="birth_year_spinner" editable="true" layoutX="14.0" layoutY="39.0" prefHeight="26.0"
+                  prefWidth="119.0" stylesheets="@../styles/spinner.css"/>
+         <Label layoutX="229.0" layoutY="10.0" text="Height"/>
+         <Spinner fx:id="weight_spinner" editable="true" layoutX="380.0" layoutY="39.0" prefHeight="26.0"
+                  prefWidth="107.0" stylesheets="@../styles/spinner.css"/>
+         <Label layoutX="410.0" layoutY="10.0" text="Weight"/>
+         <Spinner fx:id="height_spinner" editable="true" layoutX="198.0" layoutY="39.0" prefHeight="26.0"
+                  prefWidth="107.0" stylesheets="@../styles/spinner.css"/>
+      </AnchorPane>
+      <Label text="Username"/>
+      <TextField fx:id="username_txt_fld" promptText="Username" styleClass="input_field">
+         <VBox.margin>
+            <Insets left="80.0" right="100.0"/>
+         </VBox.margin>
+      </TextField>
+      <Label text="Password"/>
+      <PasswordField fx:id="password_txt_fld" prefWidth="454.0" promptText="Password" styleClass="input_field">
+         <VBox.margin>
+            <Insets left="80.0" right="100.0"/>
+         </VBox.margin>
+      </PasswordField>
+      <AnchorPane nodeOrientation="RIGHT_TO_LEFT" prefHeight="17.0" prefWidth="363.0">
+         <padding>
+            <Insets left="8.0" right="8.0"/>
+         </padding>
+         <CheckBox fx:id="show_password_check_bx" layoutX="94.0" layoutY="1.0" mnemonicParsing="false"
+                   stylesheets="@../styles/check_box.css" text="Show Password" textAlignment="RIGHT"
+                   AnchorPane.rightAnchor="313.2">
+            <opaqueInsets>
+               <Insets left="8.0" right="8.0"/>
+            </opaqueInsets>
+            <font>
+               <Font name="Montserrat-Regular" size="12.0"/>
+            </font>
+         </CheckBox>
+      </AnchorPane>
+      <Label text="Confirm Password">
+         <VBox.margin>
+            <Insets/>
+         </VBox.margin>
+      </Label>
+      <PasswordField fx:id="confirm_password_txt_fld" promptText="Confirm Password" styleClass="input_field">
+         <VBox.margin>
+            <Insets left="80.0" right="100.0"/>
+         </VBox.margin>
+      </PasswordField>
+      <Button fx:id="register_btn" mnemonicParsing="false" text="Register"/>
+      <Button fx:id="clear_btn" mnemonicParsing="false" styleClass="button_clear" text="Clear"/>
+      <Label text="Already have an account?"/>
+      <Button fx:id="login_btn" mnemonicParsing="false" text="Log In"/>
+   </VBox>
 </AnchorPane>
