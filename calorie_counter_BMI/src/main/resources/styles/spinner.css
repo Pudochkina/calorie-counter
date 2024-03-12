@@ -1,8 +1,10 @@
 * {
-	-fx-primary-color: #97DEC9;
+	-fx-primary-color: #CCCCFF;
 	-fx-secondary-color: #4B6EAF;
     -fx-background-color: #eeeeee;
 	-fx-focus-color: -fx-secondary-color;
+	-fx-font-size: 1.1em;
+     -fx-font-family: Montserrat;
 }
 
 .spinner .increment-arrow-button,

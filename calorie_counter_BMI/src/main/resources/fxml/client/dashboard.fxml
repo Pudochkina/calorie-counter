@@ -12,113 +12,103 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.calorie_counter_bmi.controllers.client.DashboardController">
-   <children>
-      <VBox prefHeight="700.0" prefWidth="153.0">
-         <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Calorie&#10;Counter" />
-            <AnchorPane prefHeight="18.0" prefWidth="154.0">
-               <children>
-                  <Label text="Welcome, " />
-                  <Label layoutX="53.0" text="Ann" />
-               </children>
-            </AnchorPane>
-            <Label text="My Weight" />
-            <TextField prefHeight="26.0" prefWidth="122.0" />
-            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="128.0" text="Edit" textAlignment="CENTER" />
-            <Button alignment="BOTTOM_CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="127.0" text="Log Out" />
-         </children>
-      </VBox>
-      <VBox layoutX="154.0" prefHeight="700.0" prefWidth="546.0">
-         <children>
-            <AnchorPane prefHeight="27.0" prefWidth="546.0">
-               <children>
-                  <Button layoutX="19.0" layoutY="1.0" mnemonicParsing="false" text="&lt;" />
-                  <DatePicker layoutX="174.0" layoutY="1.0" />
-                  <Button layoutX="494.0" layoutY="1.0" mnemonicParsing="false" text="&gt;" />
-               </children>
-            </AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <ProgressIndicator layoutX="387.0" layoutY="51.0" progress="0.0" />
-                  <ProgressIndicator layoutX="32.0" layoutY="52.0" progress="0.0" />
-                  <ProgressIndicator layoutX="31.0" layoutY="127.0" nodeOrientation="LEFT_TO_RIGHT" progress="0.0" />
-                  <ProgressIndicator layoutX="384.0" layoutY="124.0" progress="0.0" />
-                  <ProgressIndicator layoutX="211.0" layoutY="23.0" nodeOrientation="LEFT_TO_RIGHT" progress="0.0" />
-                  <Label layoutX="252.0" layoutY="14.0" text="Total" />
-                  <Label layoutX="77.0" layoutY="44.0" prefHeight="18.0" prefWidth="43.0" text="Proteins" />
-                  <Label layoutX="77.0" layoutY="118.0" text="Fat" />
-                  <Label layoutX="423.0" layoutY="44.0" text="Сarbohydrates" />
-                  <Label layoutX="420.0" layoutY="115.0" text="Fiber" />
-                  <Label layoutX="271.0" layoutY="35.0" text="Label" />
-                  <Label layoutX="92.0" layoutY="62.0" text="Label" />
-                  <Label layoutX="448.0" layoutY="62.0" text="Label" />
-                  <Label layoutX="91.0" layoutY="139.0" text="Label" />
-                  <Label layoutX="445.0" layoutY="136.0" text="Label" />
-                  <Label layoutX="255.0" layoutY="55.0" text="out of" />
-                  <Label layoutX="79.0" layoutY="84.0" text="out of" />
-                  <Label layoutX="78.0" layoutY="159.0" text="out of" />
-                  <Label layoutX="420.0" layoutY="84.0" text="out of" />
-                  <Label layoutX="417.0" layoutY="156.0" text="out of" />
-                  <Label layoutX="307.0" layoutY="55.0" text="Label" />
-                  <Label layoutX="128.0" layoutY="84.0" text="Label" />
-                  <Label layoutX="476.0" layoutY="84.0" text="Label" />
-                  <Label layoutX="473.0" layoutY="156.0" text="Label" />
-                  <Label layoutX="127.0" layoutY="159.0" text="Label" />
-               </children>
-            </AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="546.0">
-               <children>
-                  <TableView layoutY="39.0" prefHeight="435.0" prefWidth="282.0">
-                    <columns>
-                      <TableColumn prefWidth="75.0" text="C1" />
-                      <TableColumn prefWidth="75.0" text="C2" />
-                    </columns>
-                  </TableView>
-                  <Label layoutX="76.0" layoutY="5.0" prefHeight="18.0" prefWidth="150.0" text="What I Ate Today:" />
-                  <TextField layoutX="299.0" layoutY="111.0" />
-                  <Label layoutX="299.0" layoutY="82.0" text="Name of the Dish" />
-                  <Label layoutX="299.0" layoutY="159.0" text="Amount" />
-                  <Button layoutX="302.0" layoutY="257.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="143.0" text="Add" textAlignment="CENTER" />
-                  <Text layoutX="469.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• 100 g/ml" />
-                  <Spinner layoutX="299.0" layoutY="191.0" />
-                  <Label layoutX="335.0" layoutY="39.0" prefHeight="18.0" prefWidth="150.0" text="Add a New Dish" />
-               </children>
-            </AnchorPane>
-         </children>
-      </VBox>
-      <VBox layoutX="700.0" prefHeight="700.0" prefWidth="501.0">
-         <children>
-            <Label text="What Сan I Eat Today?" />
-            <AnchorPane prefHeight="502.0" prefWidth="502.0">
-               <children>
-                  <TableView prefHeight="435.0" prefWidth="502.0">
-                    <columns>
-                      <TableColumn prefWidth="75.0" text="C1" />
-                      <TableColumn prefWidth="75.0" text="C2" />
-                    </columns>
-                  </TableView>
-               </children>
-            </AnchorPane>
-            <AnchorPane prefHeight="314.0" prefWidth="502.0">
-               <children>
-                  <Text layoutX="20.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name of the Product" />
-                  <TextField layoutX="148.0" layoutY="42.0" prefHeight="26.0" prefWidth="282.0" />
-                  <Button layoutX="385.0" layoutY="199.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="102.0" text="Add" textAlignment="CENTER" />
-                  <Label layoutX="187.0" layoutY="14.0" text="Want to Add a Product ?" />
-                  <TextField layoutX="24.0" layoutY="138.0" prefHeight="26.0" prefWidth="102.0" />
-                  <TextField layoutX="148.0" layoutY="138.0" prefHeight="26.0" prefWidth="102.0" />
-                  <TextField layoutX="385.0" layoutY="138.0" prefHeight="26.0" prefWidth="102.0" />
-                  <TextField layoutX="267.0" layoutY="138.0" prefHeight="26.0" prefWidth="102.0" />
-                  <Text layoutX="45.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Proteins&#10;in 100 g/ml" textAlignment="CENTER" wrappingWidth="60.662109375" />
-                  <Text layoutX="169.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fat&#10;in 100 g/ml" textAlignment="CENTER" />
-                  <Text layoutX="406.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fiber&#10;in 100 g/ml" textAlignment="CENTER" />
-                  <Text layoutX="279.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Сarbohydrates&#10;in 100 g/ml" textAlignment="CENTER" />
-                  <TextField layoutX="266.0" layoutY="199.0" prefHeight="26.0" prefWidth="102.0" />
-                  <Text layoutX="163.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Calories&#10;in 100 g/ml" textAlignment="CENTER" wrappingWidth="77.59999999999991" />
-               </children>
-            </AnchorPane>
-         </children>
-      </VBox>
-   </children>
+<AnchorPane prefHeight="700.0" prefWidth="1430.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.calorie_counter_bmi.controllers.client.DashboardController">
+   <VBox prefHeight="700.0" prefWidth="154.0">
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Calorie&#10;Counter" />
+      <AnchorPane prefHeight="18.0" prefWidth="154.0">
+         <Label text="Welcome, " />
+         <Label fx:id="username_lbl" layoutX="53.0" text="Ann" />
+      </AnchorPane>
+      <Label text="My Weight" />
+      <AnchorPane prefHeight="22.0" prefWidth="154.0">
+         <TextField fx:id="users_weigth_txt_fld" prefHeight="26.0" prefWidth="86.0" />
+         <Button fx:id="edit_users_weight_btn" layoutX="86.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="56.0" text="Edit" textAlignment="CENTER" />
+      </AnchorPane>
+      <Button fx:id="logout_btn" alignment="BOTTOM_CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="141.0" text="Log Out" />
+   </VBox>
+   <VBox layoutX="154.0" prefHeight="700.0" prefWidth="546.0">
+      <AnchorPane prefHeight="27.0" prefWidth="546.0">
+         <Button fx:id="previous_date_btn" layoutX="19.0" layoutY="1.0" mnemonicParsing="false" text="&lt;" />
+         <DatePicker fx:id="calendar_date_picker" layoutX="174.0" layoutY="1.0" />
+         <Button fx:id="next_date_btn" layoutX="494.0" layoutY="1.0" mnemonicParsing="false" text="&gt;" />
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <ProgressIndicator fx:id="users_carbohydrates_indicator" layoutX="387.0" layoutY="51.0" progress="0.0" />
+         <ProgressIndicator fx:id="users_proteins_indicator" layoutX="32.0" layoutY="52.0" progress="0.0" />
+         <ProgressIndicator fx:id="users_fat_indicator" layoutX="31.0" layoutY="127.0" nodeOrientation="LEFT_TO_RIGHT" progress="0.0" />
+         <ProgressIndicator fx:id="users_fiber_indicator" layoutX="384.0" layoutY="124.0" progress="0.0" />
+         <ProgressIndicator fx:id="users_total_indicator" layoutX="211.0" layoutY="23.0" nodeOrientation="LEFT_TO_RIGHT" progress="0.0" />
+         <Label layoutX="252.0" layoutY="14.0" text="Total" />
+         <Label layoutX="77.0" layoutY="44.0" prefHeight="18.0" prefWidth="43.0" text="Proteins" />
+         <Label layoutX="77.0" layoutY="118.0" text="Fat" />
+         <Label layoutX="423.0" layoutY="44.0" text="Сarbohydrates" />
+         <Label layoutX="420.0" layoutY="115.0" text="Fiber" />
+         <Label fx:id="users_current_total_number_label" layoutX="271.0" layoutY="35.0" text="Label" />
+         <Label fx:id="users_current_proteins_number_label" layoutX="92.0" layoutY="62.0" text="Label" />
+         <Label fx:id="users_current_carbohydrates_number_label" layoutX="448.0" layoutY="62.0" text="Label" />
+         <Label fx:id="users_current_fat_number_label" layoutX="91.0" layoutY="139.0" text="Label" />
+         <Label fx:id="users_current_fiber_number_label" layoutX="445.0" layoutY="136.0" text="Label" />
+         <Label layoutX="255.0" layoutY="55.0" text="out of" />
+         <Label layoutX="79.0" layoutY="84.0" text="out of" />
+         <Label layoutX="78.0" layoutY="159.0" text="out of" />
+         <Label layoutX="420.0" layoutY="84.0" text="out of" />
+         <Label layoutX="417.0" layoutY="156.0" text="out of" />
+         <Label fx:id="users_daily_total_label" layoutX="307.0" layoutY="55.0" text="Label" />
+         <Label fx:id="users_daily_proteins_label" layoutX="128.0" layoutY="84.0" text="Label" />
+         <Label layoutX="476.0" layoutY="84.0" text="Label" />
+         <Label fx:id="users_daily_fiber_label" layoutX="473.0" layoutY="156.0" text="Label" />
+         <Label fx:id="users_daily_fat_label" layoutX="127.0" layoutY="159.0" text="Label" />
+      </AnchorPane>
+      <AnchorPane prefHeight="474.0" prefWidth="606.0">
+         <TableView fx:id="users_daily_menu_table_view" layoutY="39.0" prefHeight="435.0" prefWidth="282.0">
+            <columns>
+               <TableColumn fx:id="name_ate_product_table_column" prefWidth="143.1999969482422" text="Name" />
+               <TableColumn fx:id="amount_ate_product_table_column" prefWidth="63.20001220703125" text="Amount" />
+               <TableColumn fx:id="calories_ate_product_table_column" prefWidth="76.79998779296875" text="Calories" />
+            </columns>
+         </TableView>
+         <Label layoutX="76.0" layoutY="5.0" prefHeight="18.0" prefWidth="150.0" text="What I Ate Today:" />
+         <TextField fx:id="add_new_dish_txt_fld" layoutX="299.0" layoutY="111.0" prefHeight="26.0" prefWidth="231.0" />
+         <Label layoutX="299.0" layoutY="82.0" text="Name of the Dish" />
+         <Label layoutX="299.0" layoutY="159.0" text="Amount" />
+         <Button fx:id="add_new_dish_btn" layoutX="302.0" layoutY="257.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="143.0" text="Add" textAlignment="CENTER" />
+         <Text layoutX="469.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• 100 g/ml" />
+         <Spinner fx:id="add_new_dish_amount_spinner" layoutX="299.0" layoutY="191.0" />
+         <Label layoutX="335.0" layoutY="39.0" prefHeight="18.0" prefWidth="150.0" text="Add a New Dish" />
+      </AnchorPane>
+   </VBox>
+   <VBox layoutX="700.0" prefHeight="700.0" prefWidth="501.0">
+      <AnchorPane prefHeight="46.0" prefWidth="502.0">
+         <Label layoutX="23.0" layoutY="10.0" text="What Сan I Eat Today?" />
+         <TextField fx:id="search_product_txt_fld" layoutX="155.0" layoutY="5.0" prefHeight="26.0" prefWidth="546.0" />
+      </AnchorPane>
+      <AnchorPane prefHeight="502.0" prefWidth="502.0">
+         <TableView fx:id="list_of_products_table_view" layoutY="9.0" prefHeight="418.0" prefWidth="702.0">
+            <columns>
+               <TableColumn fx:id="name_can_eat_product_table_column" prefWidth="277.60003662109375" text="Name" />
+               <TableColumn fx:id="calorie_dose_can_eat_product_table_column" prefWidth="85.5999755859375" text="Calories&#10; in 100 g/ml" />
+               <TableColumn fx:id="proteins_dose_can_eat_product_table_column" prefWidth="75.20001220703125" text="Proteins&#10;in 100 g/ml" />
+               <TableColumn fx:id="fat_dose_can_eat_product_table_column" prefWidth="77.59991455078125" text="Fat&#10;in 100 g/ml" />
+               <TableColumn fx:id="carbohydrates_dose_can_eat_product_table_column" prefWidth="103.199951171875" text="Сarbohydrates&#10;in 100 g/ml" />
+               <TableColumn fx:id="fiber_dose_can_eat_product_table_column" prefWidth="84.800048828125" text="Fiber&#10;in 100 g/ml" />
+            </columns>
+         </TableView>
+      </AnchorPane>
+      <AnchorPane prefHeight="314.0" prefWidth="502.0">
+         <Text layoutX="20.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name of the Product" />
+         <TextField fx:id="add_new_product_txt_fld" layoutX="148.0" layoutY="42.0" prefHeight="26.0" prefWidth="472.0" />
+         <Button fx:id="add_new_product_btn" layoutX="519.0" layoutY="184.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="102.0" text="Add" textAlignment="CENTER" />
+         <Label layoutX="285.0" layoutY="14.0" text="Want to Add a Product ?" />
+         <TextField fx:id="new_product_proteins_dose_txt_fld" layoutX="24.0" layoutY="138.0" prefHeight="26.0" prefWidth="102.0" />
+         <TextField fx:id="new_product_fat_dose_txt_fld" layoutX="148.0" layoutY="138.0" prefHeight="26.0" prefWidth="102.0" />
+         <TextField fx:id="new_product_fiber_dose_txt_fld" layoutX="385.0" layoutY="138.0" prefHeight="26.0" prefWidth="102.0" />
+         <TextField fx:id="new_product_carbohydrates_dose_txt_fld" layoutX="267.0" layoutY="138.0" prefHeight="26.0" prefWidth="102.0" />
+         <Text layoutX="45.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Proteins&#10;in 100 g/ml" textAlignment="CENTER" wrappingWidth="60.662109375" />
+         <Text layoutX="169.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fat&#10;in 100 g/ml" textAlignment="CENTER" />
+         <Text layoutX="406.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fiber&#10;in 100 g/ml" textAlignment="CENTER" />
+         <Text layoutX="279.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Сarbohydrates&#10;in 100 g/ml" textAlignment="CENTER" />
+         <TextField fx:id="new_product_calories_dose_txt_fld" layoutX="519.0" layoutY="138.0" prefHeight="26.0" prefWidth="102.0" />
+         <Text layoutX="532.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Calories&#10;in 100 g/ml" textAlignment="CENTER" wrappingWidth="77.59999999999991" />
+      </AnchorPane>
+   </VBox>
 </AnchorPane>
