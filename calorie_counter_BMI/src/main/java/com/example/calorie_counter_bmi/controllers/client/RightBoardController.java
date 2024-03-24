@@ -1,18 +1,18 @@
 package com.example.calorie_counter_bmi.controllers.client;
 
-import com.example.calorie_counter_bmi.models.Model;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class DashboardController implements Initializable {
-    public Label username_lbl;
-    public TextField users_weigth_txt_fld;
-    public Button edit_users_weight_btn;
-    public Button logout_btn;
+/** контроллер отвечающий за
+ * выбор даты
+ * отображение ежедневной нормы кбжу пользователя
+ * кол-ва съеденных за день кбжу
+ * списка съеденных за день продуктов
+ * добавление продукта в рацион */
+public class RightBoardController implements Initializable {
     public Button previous_date_btn;
     public DatePicker calendar_date_picker;
     public Button next_date_btn;
@@ -37,30 +37,9 @@ public class DashboardController implements Initializable {
     public TextField add_new_dish_txt_fld;
     public Button add_new_dish_btn;
     public Spinner add_new_dish_amount_spinner;
-    public TextField search_product_txt_fld;
-    public TableView list_of_products_table_view;
-    public TableColumn name_can_eat_product_table_column;
-    public TableColumn calorie_dose_can_eat_product_table_column;
-    public TableColumn proteins_dose_can_eat_product_table_column;
-    public TableColumn fat_dose_can_eat_product_table_column;
-    public TableColumn carbohydrates_dose_can_eat_product_table_column;
-    public TableColumn fiber_dose_can_eat_product_table_column;
-    public TextField add_new_product_txt_fld;
-    public Button add_new_product_btn;
-    public TextField new_product_proteins_dose_txt_fld;
-    public TextField new_product_fat_dose_txt_fld;
-    public TextField new_product_fiber_dose_txt_fld;
-    public TextField new_product_carbohydrates_dose_txt_fld;
-    public TextField new_product_calories_dose_txt_fld;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        logout_btn.setOnAction(event -> onLogin());
-    }
 
-    private void onLogin() {
-        Stage stage = (Stage) logout_btn.getScene().getWindow();
-        Model.getInstance().getViewFactory().closeStage(stage);
-        Model.getInstance().getViewFactory().showLoginWindow();
     }
 }
