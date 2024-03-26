@@ -1,10 +1,7 @@
 package com.example.calorie_counter_bmi.controllers.client;
 
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -42,7 +39,6 @@ public class CenterBoardController implements Initializable {
      * столбец кол-ва углеводов выбираемого продукта в 100г/100мл
      */
     public TableColumn carbohydrates_dose_can_eat_product_table_column;
-    //кол-во клетчатки выбираемого продукта в 100г/100мл
     /**
      * столбец кол-ва клетчатки добавляемого продукта в 100г/100мл
      */
@@ -58,23 +54,23 @@ public class CenterBoardController implements Initializable {
     /**
      * кол-во белков добавляемого продукта в 100г/100мл
      */
-    public TextField new_product_proteins_dose_txt_fld;
+    public Spinner new_product_proteins_dose_spinner;
     /**
      * кол-во жиров добавляемого продукта в 100г/100мл
      */
-    public TextField new_product_fat_dose_txt_fld;
+    public Spinner new_product_fat_dose_spinner;
     /**
      * кол-во клетчатки добавляемого продукта в 100г/100мл
      */
-    public TextField new_product_fiber_dose_txt_fld;
+    public Spinner new_product_fiber_dose_spinner;
     /**
      * кол-во углеводов добавляемого продукта в 100г/100мл
       */
-    public TextField new_product_carbohydrates_dose_txt_fld;
+    public Spinner new_product_carbohydrates_dose_spinner;
     /**
      * калорийность добавляемого продукта в 100г/100мл
      */
-    public TextField new_product_calories_dose_txt_fld;
+    public Spinner new_product_calories_dose_spinner;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

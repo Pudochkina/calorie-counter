@@ -19,6 +19,7 @@ public class LeftBoardController implements Initializable {
     public TextField users_weigth_txt_fld;
     public Button edit_users_weight_btn;
     public Button logout_btn;
+    public Label error_text_fld;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
