@@ -30,21 +30,21 @@
          <Label fx:id="fat_bold_size" layoutX="77.0" layoutY="118.0" text="Fat" />
          <Label fx:id="carbo_bold_size" layoutX="423.0" layoutY="44.0" text="Сarbohydrates" />
          <Label fx:id="fiber_bold_size" layoutX="420.0" layoutY="115.0" text="Fiber" />
-         <Label fx:id="users_current_total_number_label" layoutX="271.0" layoutY="35.0" text="Label" />
-         <Label fx:id="users_current_proteins_number_label" layoutX="92.0" layoutY="62.0" text="Label" />
-         <Label fx:id="users_current_carbohydrates_number_label" layoutX="448.0" layoutY="62.0" text="Label" />
-         <Label fx:id="users_current_fat_number_label" layoutX="91.0" layoutY="139.0" text="Label" />
-         <Label fx:id="users_current_fiber_number_label" layoutX="445.0" layoutY="136.0" text="Label" />
+         <Label fx:id="users_current_total_number_label" layoutX="271.0" layoutY="35.0" text="..." />
+         <Label fx:id="users_current_proteins_number_label" layoutX="92.0" layoutY="62.0" text="..." />
+         <Label fx:id="users_current_carbohydrates_number_label" layoutX="448.0" layoutY="62.0" text="..." />
+         <Label fx:id="users_current_fat_number_label" layoutX="91.0" layoutY="139.0" text="..." />
+         <Label fx:id="users_current_fiber_number_label" layoutX="445.0" layoutY="136.0" text="..." />
          <Label fx:id="not_bold_out_of_total" layoutX="255.0" layoutY="55.0" text="out of" />
          <Label fx:id="not_bold_out_of_proteins" layoutX="79.0" layoutY="84.0" text="out of" />
          <Label fx:id="not_bold_out_of_fat" layoutX="78.0" layoutY="159.0" text="out of" />
          <Label fx:id="not_bold_out_of_carbo" layoutX="420.0" layoutY="84.0" text="out of" />
          <Label fx:id="not_bold_out_of_fiber" layoutX="417.0" layoutY="156.0" text="out of" />
-         <Label fx:id="users_daily_total_label" layoutX="307.0" layoutY="55.0" text="Label" />
-         <Label fx:id="users_daily_proteins_label" layoutX="128.0" layoutY="84.0" text="Label" />
-         <Label fx:id="users_daily_carbohydrates_label" layoutX="476.0" layoutY="84.0" text="Label" />
-         <Label fx:id="users_daily_fiber_label" layoutX="473.0" layoutY="156.0" text="Label" />
-         <Label fx:id="users_daily_fat_label" layoutX="127.0" layoutY="159.0" text="Label" />
+         <Label fx:id="users_daily_total_label" layoutX="307.0" layoutY="55.0" text="..." />
+         <Label fx:id="users_daily_proteins_label" layoutX="128.0" layoutY="84.0" text="..." />
+         <Label fx:id="users_daily_carbohydrates_label" layoutX="476.0" layoutY="84.0" text="..." />
+         <Label fx:id="users_daily_fiber_label" layoutX="473.0" layoutY="156.0" text="..." />
+         <Label fx:id="users_daily_fat_label" layoutX="127.0" layoutY="159.0" text="..." />
       </AnchorPane>
       <AnchorPane prefHeight="474.0" prefWidth="606.0">
          <TableView fx:id="users_daily_menu_table_view" layoutY="39.0" prefHeight="438.0" prefWidth="294.0" stylesheets="@../../styles/right._board.css">
@@ -55,7 +55,7 @@
             </columns>
          </TableView>
          <Label fx:id="what_ate_today" layoutX="76.0" layoutY="5.0" prefHeight="18.0" prefWidth="150.0" text="What I Ate Today:" />
-         <TextField fx:id="add_new_dish_txt_fld" layoutX="299.0" layoutY="111.0" prefHeight="26.0" prefWidth="231.0" promptText="Name of The Dish" styleClass="input_field" />
+         <TextField fx:id="add_new_dish_txt_fld" layoutX="299.0" layoutY="111.0" prefHeight="26.0" prefWidth="231.0" promptText="..." styleClass="input_field" />
          <Label fx:id="not_bold_name_of_the_dish" layoutX="299.0" layoutY="82.0" text="Name of the Dish" />
          <Label fx:id="not_bold_amount" layoutX="299.0" layoutY="159.0" text="Amount" />
          <Button fx:id="add_new_dish_btn" layoutX="302.0" layoutY="257.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="143.0" text="Add" textAlignment="CENTER" />

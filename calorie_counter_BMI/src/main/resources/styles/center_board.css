@@ -11,6 +11,14 @@
     -fx-font-family: Montserrat;
 }
 
+.input_field_add_product {
+    -fx-background-color: white;
+    -fx-pref-height: 25;
+    -fx-pref-width: 86;
+    -fx-font-size: 1em;
+    -fx-font-family: Montserrat;
+}
+
 Button {
     -fx-background-color: #97DEC9; /* Цвет фона кнопки */
     -fx-text-fill: black; /* Цвет текста на кнопке */

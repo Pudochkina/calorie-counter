@@ -54,23 +54,23 @@ public class CenterBoardController implements Initializable {
     /**
      * кол-во белков добавляемого продукта в 100г/100мл
      */
-    public Spinner new_product_proteins_dose_spinner;
+    public TextField new_product_proteins_dose_txt_fld;
     /**
      * кол-во жиров добавляемого продукта в 100г/100мл
      */
-    public Spinner new_product_fat_dose_spinner;
+    public TextField new_product_fat_dose_txt_fld;
     /**
      * кол-во клетчатки добавляемого продукта в 100г/100мл
      */
-    public Spinner new_product_fiber_dose_spinner;
+    public TextField new_product_fiber_dose_txt_fld;
     /**
      * кол-во углеводов добавляемого продукта в 100г/100мл
       */
-    public Spinner new_product_carbohydrates_dose_spinner;
+    public TextField new_product_carbohydrates_dose_txt_fld;
     /**
      * калорийность добавляемого продукта в 100г/100мл
      */
-    public Spinner new_product_calories_dose_spinner;
+    public TextField new_product_calories_dose_txt_fld;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
