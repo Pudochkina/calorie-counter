@@ -3,10 +3,10 @@ package com.example.calorie_counter_bmi.models;
 public class User {
 
 
-    public static double[] calculateDailyIntakeValues(double height, double weight, String gender) {
-        double[] intakeValues = new double[5]; // Создаем массив для хранения значений
+    public static Double[] calculateDailyIntakeValues(Double height, Double weight, String gender) {
+        Double[] intakeValues = new Double[5]; // Создаем массив для хранения значений
 
-        double bmr;
+        Double bmr;
         // Рассчитываем базовый уровень метаболизма в зависимости от пола
         if (gender.equalsIgnoreCase("male")) {
             bmr =  Math.round((88.362 + (13.397 * weight) + (4.799 * height) - (5.677)) * 100.0) / 100.0;
@@ -17,10 +17,10 @@ public class User {
         }
 
         // Рассчет суточной нормы потребления белков, жиров, углеводов, клетчатки
-        double proteinIntake = Math.round((0.8 * weight) * 100.0) / 100.0; // Примерное количество белков в граммах
-        double fatIntake = Math.round((0.3 * bmr / 9) * 100.0) / 100.0; // Примерное количество жиров в граммах
-        double carbIntake = Math.round((0.5 * bmr / 4) * 100.0) / 100.0; // Примерное количество углеводов в граммах
-        double fiberIntake = 25; // Примерное количество клетчатки в граммах
+        Double proteinIntake = Math.round((0.8 * weight) * 100.0) / 100.0; // Примерное количество белков в граммах
+        Double fatIntake = Math.round((0.3 * bmr / 9) * 100.0) / 100.0; // Примерное количество жиров в граммах
+        Double carbIntake = Math.round((0.5 * bmr / 4) * 100.0) / 100.0; // Примерное количество углеводов в граммах
+        Double fiberIntake = 25.0; // Примерное количество клетчатки в граммах
 
         intakeValues[0] = proteinIntake;
         intakeValues[1] = fatIntake;
@@ -32,11 +32,11 @@ public class User {
     }
 
     public static void main(String[] args) {
-        double height = 175; // Рост в см
-        double weight = 70; // Вес в кг
+        Double height = 175.0; // Рост в см
+        Double weight = 70.0; // Вес в кг
         String gender = "male"; // Пол: male или female
 
-        double[] dailyIntakeValues = calculateDailyIntakeValues(height, weight, gender);
+        Double[] dailyIntakeValues = calculateDailyIntakeValues(height, weight, gender);
 
         System.out.println("Дневная норма потребления белков: " + dailyIntakeValues[0] + " г");
         System.out.println("Дневная норма потребления жиров: " + dailyIntakeValues[1] + " г");

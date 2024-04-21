@@ -76,4 +76,6 @@ public class CenterBoardController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
+
+
 }
