@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="740.0" stylesheets="@../../styles/right._board.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.calorie_counter_bmi.controllers.client.RightBoardController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1445.0" stylesheets="@../../styles/right._board.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.calorie_counter_bmi.controllers.client.RightBoardController">
    <VBox layoutX="-1.0" prefHeight="700.0" prefWidth="588.0" styleClass="root" stylesheets="@../../styles/right._board.css">
       <AnchorPane prefHeight="27.0" prefWidth="546.0" stylesheets="@../../styles/date_picker.css">
          <Button fx:id="previous_date_btn" layoutX="19.0" layoutY="1.0" mnemonicParsing="false" text="&lt;" />
@@ -31,10 +31,10 @@
          <Label fx:id="carbo_bold_size" layoutX="423.0" layoutY="44.0" text="Сarbohydrates" />
          <Label fx:id="fiber_bold_size" layoutX="420.0" layoutY="115.0" text="Fiber" />
          <Label fx:id="users_current_total_number_label" layoutX="271.0" layoutY="35.0" text="..." />
-         <Label fx:id="users_current_proteins_number_label" layoutX="92.0" layoutY="62.0" text="..." />
-         <Label fx:id="users_current_carbohydrates_number_label" layoutX="448.0" layoutY="62.0" text="..." />
-         <Label fx:id="users_current_fat_number_label" layoutX="91.0" layoutY="139.0" text="..." />
-         <Label fx:id="users_current_fiber_number_label" layoutX="445.0" layoutY="136.0" text="..." />
+         <Label fx:id="users_current_proteins_number_label" layoutX="92.0" layoutY="62.0" text="0.0" />
+         <Label fx:id="users_current_carbohydrates_number_label" layoutX="448.0" layoutY="62.0" text="0.0" />
+         <Label fx:id="users_current_fat_number_label" layoutX="91.0" layoutY="139.0" text="0.0" />
+         <Label fx:id="users_current_fiber_number_label" layoutX="445.0" layoutY="136.0" text="0.0" />
          <Label fx:id="not_bold_out_of_total" layoutX="255.0" layoutY="55.0" text="out of" />
          <Label fx:id="not_bold_out_of_proteins" layoutX="79.0" layoutY="84.0" text="out of" />
          <Label fx:id="not_bold_out_of_fat" layoutX="78.0" layoutY="159.0" text="out of" />
@@ -62,7 +62,6 @@
          <Text layoutX="469.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• 100 g/ml" />
          <Spinner fx:id="add_new_dish_amount_spinner" layoutX="299.0" layoutY="191.0" prefHeight="27.0" prefWidth="160.0" stylesheets="@../../styles/spinner.css" />
          <Label fx:id="add_new_dish" layoutX="335.0" layoutY="39.0" prefHeight="18.0" prefWidth="150.0" text="Add a New Dish" />
-         <Button fx:id="add_new_product_btn" layoutX="532.0" layoutY="115.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="23.0" text="+" textAlignment="CENTER" />
       </AnchorPane>
    </VBox>
    <AnchorPane layoutX="585.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="154.0" styleClass="root" stylesheets="@../../styles/left_board.css">
@@ -81,5 +80,56 @@
       <VBox layoutX="1.0" layoutY="660.0" prefHeight="39.0" prefWidth="152.0">
          <Button fx:id="logout_btn" alignment="BOTTOM_CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="141.0" stylesheets="@../../styles/login.css" text="Log Out" />
       </VBox>
+   </AnchorPane>
+   <AnchorPane layoutX="739.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="703.0" stylesheets="@../../styles/center_board.css">
+      <children>
+         <VBox layoutX="2.0" prefHeight="700.0" prefWidth="501.0" styleClass="root" stylesheets="@../../styles/center_board.css">
+            <children>
+               <AnchorPane prefHeight="46.0" prefWidth="502.0">
+                  <children>
+                     <Label fx:id="what_can_eat_size_bold" layoutX="14.0" layoutY="13.0" text="What Сan I Eat Today?" />
+                     <TextField fx:id="search_product_txt_fld" layoutX="195.0" layoutY="5.0" prefHeight="26.0" prefWidth="506.0" promptText="..." styleClass="input_field" />
+                  </children>
+               </AnchorPane>
+               <AnchorPane prefHeight="414.0" prefWidth="702.0" stylesheets="@../../styles/center_board.css">
+                  <children>
+                     <TableView fx:id="list_of_products_table_view" layoutY="9.0" prefHeight="400.0" prefWidth="702.0" stylesheets="@../../styles/center_board.css">
+                        <columns>
+                           <TableColumn fx:id="name_can_eat_product_table_column" prefWidth="277.60003662109375" text="Name" />
+                           <TableColumn fx:id="calorie_dose_can_eat_product_table_column" prefWidth="85.5999755859375" text="Calories&#10; in 100 g/ml" />
+                           <TableColumn fx:id="proteins_dose_can_eat_product_table_column" prefWidth="75.20001220703125" text="Proteins&#10;in 100 g/ml" />
+                           <TableColumn fx:id="fat_dose_can_eat_product_table_column" prefWidth="77.59991455078125" text="Fat&#10;in 100 g/ml" />
+                           <TableColumn fx:id="carbohydrates_dose_can_eat_product_table_column" prefWidth="103.199951171875" text="Сarbohydrates&#10;in 100 g/ml" />
+                           <TableColumn fx:id="fiber_dose_can_eat_product_table_column" prefWidth="84.800048828125" text="Fiber&#10;in 100 g/ml" />
+                        </columns>
+                     </TableView>
+                  </children>
+               </AnchorPane>
+               <AnchorPane prefHeight="314.0" prefWidth="502.0">
+                  <children>
+                     <Text layoutX="20.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name of the Product" />
+                     <TextField fx:id="add_new_product_txt_fld" layoutX="162.0" layoutY="38.0" prefHeight="26.0" prefWidth="462.0" promptText="..." styleClass="input_field" />
+                     <Button fx:id="add_new_product_btn" layoutX="526.0" layoutY="209.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="102.0" text="Add" textAlignment="CENTER" />
+                     <Label fx:id="add_product_size_bold" layoutX="285.0" layoutY="14.0" text="Want to Add a Product ?" />
+                     <Text layoutX="45.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Proteins&#10;" textAlignment="CENTER" wrappingWidth="60.662109375" />
+                     <Text layoutX="189.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fat&#10;" textAlignment="CENTER" />
+                     <Text layoutX="421.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fiber&#10;" textAlignment="CENTER" />
+                     <Text layoutX="272.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Сarbohydrates&#10;" textAlignment="CENTER" />
+                     <Text layoutX="531.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Calories&#10;" textAlignment="CENTER" wrappingWidth="77.59999999999991" />
+                     <Text layoutX="43.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• 100 g/ml" />
+                     <Text layoutX="166.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• 100 g/ml" />
+                     <Text layoutX="538.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• 100 g/ml" />
+                     <Text layoutX="283.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• 100 g/ml" />
+                     <Text layoutX="404.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• 100 g/ml" />
+                     <TextField fx:id="new_product_proteins_dose_txt_fld" layoutX="32.0" layoutY="143.0" prefHeight="23.0" prefWidth="86.0" promptText="..." styleClass="input_field_add_product" />
+                     <TextField fx:id="new_product_fat_dose_txt_fld" layoutX="155.0" layoutY="143.0" prefHeight="23.0" prefWidth="86.0" promptText="..." styleClass="input_field_add_product" />
+                     <TextField fx:id="new_product_carbohydrates_dose_txt_fld" layoutX="275.0" layoutY="143.0" prefHeight="23.0" prefWidth="86.0" promptText="..." styleClass="input_field_add_product" />
+                     <TextField fx:id="new_product_fiber_dose_txt_fld" layoutX="392.0" layoutY="143.0" prefHeight="23.0" prefWidth="86.0" promptText="..." styleClass="input_field_add_product" />
+                     <TextField fx:id="new_product_calories_dose_txt_fld" layoutX="526.0" layoutY="143.0" prefHeight="23.0" prefWidth="86.0" promptText="..." styleClass="input_field_add_product" />
+                  </children>
+               </AnchorPane>
+            </children>
+         </VBox>
+      </children>
    </AnchorPane>
 </AnchorPane>

@@ -1,10 +1,12 @@
 package com.example.calorie_counter_bmi.controllers.client;
 
+import com.example.calorie_counter_bmi.models.Model;
 import com.example.calorie_counter_bmi.views.ViewFactory;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,7 +19,11 @@ import java.util.ResourceBundle;
  * отображение ежедневной нормы кбжу пользователя
  * кол-ва съеденных за день кбжу
  * списка съеденных за день продуктов
- * добавление продукта в рацион */
+ * добавление продукта в рацион
+ * отображение списка продуктов
+ * добавление нового продукта
+ * поиск продукта */
+
 public class RightBoardController implements Initializable {
     /**
      * имя пользователя
@@ -39,6 +45,10 @@ public class RightBoardController implements Initializable {
      * id пользователя, для обращения в таблицу хранящей то что съел пользователь
      */
     private int user_id;
+    /**
+     * id продукта, для обращения в таблицу хранящей то что съел пользователь
+     */
+    private int product_id;
     /**
      * кнопка выбрать предыдущую дату
      */
@@ -128,11 +138,6 @@ public class RightBoardController implements Initializable {
      */
     public TableColumn calories_ate_product_table_column;
     /**
-     * кнопка которая отвечает за добавление названия и запоминание id съеденного продукта в форму
-     * а также за открытие окна с интерефейсом по поиску и добавлению своего продукта
-     */
-    public Button add_new_product_btn;
-    /**
      * кнопка отвечающая за добавление съеденного продукта в рацион питания
      */
     public Button add_new_dish_btn;
@@ -140,6 +145,66 @@ public class RightBoardController implements Initializable {
      * поле в которое вводиться кол-во съеденного продукта
      */
     public Spinner<Integer> add_new_dish_amount_spinner;
+    /**
+     * поле в которое вводиться продукт для добавления в рацион
+     */
+    public TextField search_product_txt_fld;
+    /**
+     * таблица отображающая список продуктов из бд
+     */
+    public TableView list_of_products_table_view;
+    /**
+     * столбец названия продукта
+     */
+    public TableColumn name_can_eat_product_table_column;
+    /**
+     * столбец калорийности выбираемого продукта в 100г/100мл
+     */
+    public TableColumn calorie_dose_can_eat_product_table_column;
+    /**
+     * столбец кол-ва белка выбираемого продукта в 100г/100мл
+     */
+    public TableColumn proteins_dose_can_eat_product_table_column;
+    /**
+     * столбец кол-ва жиров выбираемого продукта в 100г/100мл
+     */
+    public TableColumn fat_dose_can_eat_product_table_column;
+    /**
+     * столбец кол-ва углеводов выбираемого продукта в 100г/100мл
+     */
+    public TableColumn carbohydrates_dose_can_eat_product_table_column;
+    /**
+     * столбец кол-ва клетчатки добавляемого продукта в 100г/100мл
+     */
+    public TableColumn fiber_dose_can_eat_product_table_column;
+    /**
+     * текстовое поле для названия продукта которое пользователь хочет добавить
+     */
+    public TextField add_new_product_txt_fld;
+    /**
+     * кнопка добавить новый продукт
+     */
+    public Button add_new_product_btn;
+    /**
+     * кол-во белков добавляемого продукта в 100г/100мл
+     */
+    public TextField new_product_proteins_dose_txt_fld;
+    /**
+     * кол-во жиров добавляемого продукта в 100г/100мл
+     */
+    public TextField new_product_fat_dose_txt_fld;
+    /**
+     * кол-во клетчатки добавляемого продукта в 100г/100мл
+     */
+    public TextField new_product_fiber_dose_txt_fld;
+    /**
+     * кол-во углеводов добавляемого продукта в 100г/100мл
+     */
+    public TextField new_product_carbohydrates_dose_txt_fld;
+    /**
+     * калорийность добавляемого продукта в 100г/100мл
+     */
+    public TextField new_product_calories_dose_txt_fld;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -167,5 +232,7 @@ public class RightBoardController implements Initializable {
         username_lbl.setText(name);
         users_weigth_txt_fld.setText("" + weight);
     }
+
+
 
 }

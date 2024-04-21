@@ -24,6 +24,16 @@ public class ViewFactory {
         createStage(loader);
     }
 
+    public void showProductWindow(){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/client/users_center_dashboard.fxml"));
+        createStage(loader);
+    }
+
+    public void showCenterWindow(){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/client/right_product_dashboard.fxml"));
+        createStage(loader);
+    }
+
     public void createStage(FXMLLoader loader){
         Scene scene = null;
         try {
@@ -63,8 +73,8 @@ public class ViewFactory {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setTitle(title);
         stage.setScene(new Scene(root));
-        stage.setX(246);
-        stage.setY(50);
+        stage.setX(20);
+        stage.setY(20);
         stage.show();
     }
 
@@ -89,8 +99,8 @@ public class ViewFactory {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setTitle(title);
         stage.setScene(new Scene(root));
-        stage.setX(400);
-        stage.setY(50);
+        stage.setX(20);
+        stage.setY(20);
         stage.show();
     }
 }
