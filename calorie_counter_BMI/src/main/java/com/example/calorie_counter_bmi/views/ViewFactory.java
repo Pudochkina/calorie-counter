@@ -52,32 +52,6 @@ public class ViewFactory {
         stage.close();
     }
 
-    public static void changeSceneFromCenterToProductBoard (ActionEvent event, String fxmlFile, String title, String username, Double weight){
-        Parent root = null;
-        if (username != null && weight != null) {
-            try {
-                FXMLLoader loader = new FXMLLoader(DBUtils.class.getResource(fxmlFile));
-                root = loader.load();
-                //LeftBoardController leftBoardController = loader.getController();
-                ///leftBoardController.setUserInformation(username, weight);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else {
-            try {
-                root = FXMLLoader.load(ViewFactory.class.getResource(fxmlFile));
-            } catch (IOException e){
-                e.printStackTrace();
-            }
-        }
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setTitle(title);
-        stage.setScene(new Scene(root));
-        stage.setX(20);
-        stage.setY(20);
-        stage.show();
-    }
-
     public static void changeSceneFromLogInToCenterBoard (ActionEvent event, String fxmlFile, String title, String username, int id, Double weight, Double calories, Double proteins, Double carbo, Double fat, Double fiber){
         Parent root = null;
         if (username != null) {

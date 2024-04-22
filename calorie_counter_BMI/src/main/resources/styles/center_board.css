@@ -53,10 +53,25 @@ Label {
     -fx-pref-width: 236;
 }
 
+#name_can_eat_product_table_column:hover {
+    -fx-pref-width: 236;
+    -fx-background-color: white;
+}
+
 #calorie_dose_can_eat_product_table_column, #proteins_dose_can_eat_product_table_column, #fat_dose_can_eat_product_table_column, #fiber_dose_can_eat_product_table_column {
     -fx-pref-width: 90;
 }
 
+#calorie_dose_can_eat_product_table_column:hover, #proteins_dose_can_eat_product_table_column:hover, #fat_dose_can_eat_product_table_column:hover, #fiber_dose_can_eat_product_table_column:hover {
+    -fx-pref-width: 90;
+    -fx-background-color: white;
+}
+
 #carbohydrates_dose_can_eat_product_table_column {
     -fx-pref-width: 110;
+}
+
+#carbohydrates_dose_can_eat_product_table_column:hover {
+    -fx-pref-width: 110;
+     -fx-background-color: white;
 }

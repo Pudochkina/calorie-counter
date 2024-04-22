@@ -79,7 +79,7 @@ public class RegisterController implements Initializable {
         Model.getInstance().getViewFactory().showLoginWindow();
     }
 
-    static boolean checkUsingIsDigitMethod(String input) {
+    public static boolean checkUsingIsDigitMethod(String input) {
         int counter = 0;
         for (char c : input.toCharArray()) {
             if (!Character.isDigit(c)) {

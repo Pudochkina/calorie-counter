@@ -12,7 +12,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1445.0" stylesheets="@../../styles/right._board.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.calorie_counter_bmi.controllers.client.RightBoardController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1445.0" stylesheets="@../../styles/right._board.css"
+            xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.calorie_counter_bmi.controllers.client.RightBoardController">
    <VBox layoutX="-1.0" prefHeight="700.0" prefWidth="588.0" styleClass="root" stylesheets="@../../styles/right._board.css">
       <AnchorPane prefHeight="27.0" prefWidth="546.0" stylesheets="@../../styles/date_picker.css">
          <Button fx:id="previous_date_btn" layoutX="19.0" layoutY="1.0" mnemonicParsing="false" text="&lt;" />
@@ -75,7 +77,6 @@
             <TextField fx:id="users_weigth_txt_fld" layoutX="-1.0" prefHeight="28.0" prefWidth="90.0" styleClass="textField" />
             <Button fx:id="edit_users_weight_btn" layoutX="86.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="56.0" text="Edit" textAlignment="CENTER" />
          </AnchorPane>
-         <Label fx:id="error_text_fld" styleClass="error_lbl" stylesheets="@../../styles/login.css" />
       </VBox>
       <VBox layoutX="1.0" layoutY="660.0" prefHeight="39.0" prefWidth="152.0">
          <Button fx:id="logout_btn" alignment="BOTTOM_CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="141.0" stylesheets="@../../styles/login.css" text="Log Out" />
@@ -93,7 +94,7 @@
                </AnchorPane>
                <AnchorPane prefHeight="414.0" prefWidth="702.0" stylesheets="@../../styles/center_board.css">
                   <children>
-                     <TableView fx:id="list_of_products_table_view" layoutY="9.0" prefHeight="400.0" prefWidth="702.0" stylesheets="@../../styles/center_board.css">
+                     <TableView fx:id="list_of_products_table_view" layoutY="9.0" onMouseClicked="#getItem" prefHeight="400.0" prefWidth="702.0" stylesheets="@../../styles/center_board.css">
                         <columns>
                            <TableColumn fx:id="name_can_eat_product_table_column" prefWidth="277.60003662109375" text="Name" />
                            <TableColumn fx:id="calorie_dose_can_eat_product_table_column" prefWidth="85.5999755859375" text="Calories&#10; in 100 g/ml" />

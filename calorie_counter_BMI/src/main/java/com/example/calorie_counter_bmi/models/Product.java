@@ -2,6 +2,76 @@ package com.example.calorie_counter_bmi.models;
 
 public class Product {
 
+    final Integer id;
+    final String productName;
+    final Double product_calories_perg, product_protein_perg, product_fat_perg, product_carbs_perg, product_fiber_perg;
+
+    public Product(Integer id, String product_name, Double product_calories_perg, Double product_protein_perg, Double product_fat_perg, Double product_carbs_perg, Double product_fiber_perg) {
+        this.id = id;
+        this.productName = product_name;
+        this.product_calories_perg = product_calories_perg;
+        this.product_protein_perg = product_protein_perg;
+        this.product_fat_perg = product_fat_perg;
+        this.product_carbs_perg = product_carbs_perg;
+        this.product_fiber_perg = product_fiber_perg;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public Double getProduct_calories_perg() {
+        return product_calories_perg;
+    }
+
+    public Double getProduct_protein_perg() {
+        return product_protein_perg;
+    }
+
+    public Double getProduct_fat_perg() {
+        return product_fat_perg;
+    }
+
+    public Double getProduct_carbs_perg() {
+        return product_carbs_perg;
+    }
+
+    public Double getProduct_fiber_perg() {
+        return product_fiber_perg;
+    }
+
+    public void setId(Integer id) {
+        id = id;
+    }
+
+    public void setProductName(String productName) {
+        productName = productName;
+    }
+
+    public void setProduct_calories_perg(Double product_calories_perg) {
+        product_calories_perg = product_calories_perg;
+    }
+
+    public void setProduct_protein_perg(Double product_protein_perg) {
+        product_protein_perg = product_protein_perg;
+    }
+
+    public void setProduct_fat_perg(Double product_fat_perg) {
+        product_fat_perg = product_fat_perg;
+    }
+
+    public void setProduct_carbs_perg(Double product_carbs_perg) {
+        product_carbs_perg = product_carbs_perg;
+    }
+
+    public void setProduct_fiber_perg(Double product_fiber_perg) {
+        product_fiber_perg = product_fiber_perg;
+    }
+
     public static Double[] calculateNutrition(Double amount, Double caloriesPer100g,
                                               Double proteinPer100g, Double fatPer100g, Double carbsPer100g, Double fiberPer100g) {
         Double calories = Math.round((amount / 100) * caloriesPer100g * 100.0) / 100.0;
