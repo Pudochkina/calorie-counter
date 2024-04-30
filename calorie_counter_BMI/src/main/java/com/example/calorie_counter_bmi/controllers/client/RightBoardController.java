@@ -2,6 +2,7 @@ package com.example.calorie_counter_bmi.controllers.client;
 
 import com.example.calorie_counter_bmi.DBUtils;
 import com.example.calorie_counter_bmi.controllers.RegisterController;
+import com.example.calorie_counter_bmi.models.EatenProduct;
 import com.example.calorie_counter_bmi.models.Product;
 import com.example.calorie_counter_bmi.views.ViewFactory;
 import javafx.collections.FXCollections;
@@ -16,6 +17,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 /** контроллер отвечающий за
@@ -57,17 +60,9 @@ public class RightBoardController implements Initializable {
      */
     private Integer product_id;
     /**
-     * кнопка выбрать предыдущую дату
-     */
-    public Button previous_date_btn;
-    /**
      * календарь с выбором даты
      */
     public DatePicker calendar_date_picker;
-    /**
-     * кнопка выбрать следующую дату
-     */
-    public Button next_date_btn;
     /**
      * процентаж кол-ва съеденных углеводов
      */
@@ -131,19 +126,19 @@ public class RightBoardController implements Initializable {
     /**
      * таблица отображающая съеденные за день продукты
      */
-    public TableView users_daily_menu_table_view;
+    public TableView<EatenProduct> users_daily_menu_table_view;
     /**
      * название съеденного продукта
      */
-    public TableColumn name_ate_product_table_column;
+    public TableColumn<EatenProduct, String> name_ate_product_table_column;
     /**
      * кол-во съеденного продукта
      */
-    public TableColumn amount_ate_product_table_column;
+    public TableColumn<EatenProduct, Double> amount_ate_product_table_column;
     /**
      * калории полученные в результате съедания продукта
      */
-    public TableColumn calories_ate_product_table_column;
+    public TableColumn<EatenProduct, Double> calories_ate_product_table_column;
     /**
      * кнопка отвечающая за добавление съеденного продукта в рацион питания
      */
@@ -221,12 +216,34 @@ public class RightBoardController implements Initializable {
      */
     ObservableList<Product> productSearchObservableList = FXCollections.observableArrayList();
     /**
+     * лист для хранения списка съеденных продуктов из бд
+     */
+    ObservableList<EatenProduct> eatenProductSearchObservableList = FXCollections.observableArrayList();
+    /**
      * переменная для хранения id выбранного продукта из таблицы
      */
     Integer index;
+    /**
+     * переменная для хранения выбранной даты
+     */
+    String chosenDate;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        /**
+         * обработка date piker
+         */
+        calendar_date_picker.setValue(LocalDate.now());
+        chosenDate = calendar_date_picker.getValue().toString();
+        getEatenProductTableView();
+
+        calendar_date_picker.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                chosenDate = calendar_date_picker.getValue().toString();
+                getEatenProductTableView();
+            }
+        });
 
         /**
          * обработка кнопки изменить вес
@@ -394,5 +411,18 @@ public class RightBoardController implements Initializable {
         list_of_products_table_view.setItems(sortedList);
     }
 
+    /**
+     * заполняем таблицу съеденных продуктов
+     * за день и по id user
+     */
+    public void getEatenProductTableView(){
+        eatenProductSearchObservableList = DBUtils.getMenuFromDB(chosenDate);
 
+        name_ate_product_table_column.setCellValueFactory(new PropertyValueFactory<EatenProduct, String>("product_name"));
+        amount_ate_product_table_column.setCellValueFactory(new PropertyValueFactory<EatenProduct, Double>("eaten_product_amount"));
+        calories_ate_product_table_column.setCellValueFactory(new PropertyValueFactory<EatenProduct, Double>("eaten_product_calories"));
+
+        users_daily_menu_table_view.setItems(eatenProductSearchObservableList.filtered(eatenProduct -> eatenProduct.getMenu_date().toString().equals(chosenDate)));
+        System.out.println(eatenProductSearchObservableList.isEmpty());
+    }
 }

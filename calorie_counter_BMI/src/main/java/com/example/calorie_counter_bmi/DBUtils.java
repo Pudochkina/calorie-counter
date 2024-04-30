@@ -1,6 +1,7 @@
 package com.example.calorie_counter_bmi;
 
 import com.example.calorie_counter_bmi.controllers.client.RightBoardController;
+import com.example.calorie_counter_bmi.models.EatenProduct;
 import com.example.calorie_counter_bmi.models.Product;
 import com.example.calorie_counter_bmi.models.User;
 import com.example.calorie_counter_bmi.views.ViewFactory;
@@ -11,7 +12,7 @@ import java.sql.*;
 import javafx.scene.control.Alert;
 
 public class DBUtils {
-
+    public static int retrid;
     /** метод отвечающий за регистрацию пользователя
      * считывает значения введенные пользователем
      * производит валидацию
@@ -115,7 +116,7 @@ public class DBUtils {
                 alert.show();
             } else {
                 while (resultSet.next()){
-                    int retrid = resultSet.getInt("user_id");
+                    retrid = resultSet.getInt("user_id");
                     String retrievedPassword = resultSet.getString("user_password");
                     Double retrievedWeight = resultSet.getDouble("user_weight");
                     Double retr_dt_user_calories = resultSet.getDouble("user_dt_calories");
@@ -160,8 +161,7 @@ public class DBUtils {
         }
     }
 
-    /** метод отвечающий за вход пользователя
-     * считывание из бд даннфх о продуктах
+    /** считывание из бд даннфх о продуктах
      * */
     public static ObservableList<Product> getProductsFromDB(){
         ObservableList<Product> productSearchObservableList = FXCollections.observableArrayList();
@@ -393,5 +393,59 @@ public class DBUtils {
             }
         }
         return p_id;
+    }
+
+    /** считывание из бд данных о съеденных продуктах
+     * */
+    public static ObservableList<EatenProduct> getMenuFromDB(String date){
+        ObservableList<EatenProduct> productSearchObservableList = FXCollections.observableArrayList();
+
+        Connection connection = null;
+        PreparedStatement getProduct = null;
+        ResultSet queryOutput = null;
+
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/calorie_counter_app", "root", "qwerty1234");
+            //getProduct = connection.prepareStatement("SELECT eaten_product_amount, eaten_product_calories, eaten_product_protein, eaten_product_fat, eaten_product_carbs, eaten_product_fiber, eaten_product_name FROM menu WHERE menu_date = " + date + " AND user_id = " + retrid);
+            getProduct = connection.prepareStatement("SELECT menu_date, eaten_product_amount, eaten_product_calories, eaten_product_protein, eaten_product_fat, eaten_product_carbs, eaten_product_fiber, eaten_product_name FROM menu WHERE user_id = " + retrid);
+            queryOutput = getProduct.executeQuery();
+
+            while (queryOutput.next()){
+                Date queryMenu_date = queryOutput.getDate("menu_date");
+                Double queryProductAmount = queryOutput.getDouble("eaten_product_amount");
+                Double queryProductCal = queryOutput.getDouble("eaten_product_calories");
+                Double queryProductProtein = queryOutput.getDouble("eaten_product_protein");
+                Double queryProductFat = queryOutput.getDouble("eaten_product_fat");
+                Double queryProductCarbs = queryOutput.getDouble("eaten_product_carbs");
+                Double queryProductFiber = queryOutput.getDouble("eaten_product_fiber");
+                String queryProductName = queryOutput.getString("eaten_product_name");
+                productSearchObservableList.add(new EatenProduct(queryProductName, queryMenu_date, queryProductAmount, queryProductCal, queryProductProtein, queryProductFat, queryProductCarbs, queryProductFiber));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (queryOutput != null) {
+                try {
+                    queryOutput.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (getProduct != null) {
+                try {
+                    getProduct.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return productSearchObservableList;
     }
 }

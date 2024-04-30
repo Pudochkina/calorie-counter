@@ -12,14 +12,10 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1445.0" stylesheets="@../../styles/right._board.css"
-            xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.calorie_counter_bmi.controllers.client.RightBoardController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1445.0" stylesheets="@../../styles/right._board.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.calorie_counter_bmi.controllers.client.RightBoardController">
    <VBox layoutX="-1.0" prefHeight="700.0" prefWidth="588.0" styleClass="root" stylesheets="@../../styles/right._board.css">
       <AnchorPane prefHeight="27.0" prefWidth="546.0" stylesheets="@../../styles/date_picker.css">
-         <Button fx:id="previous_date_btn" layoutX="19.0" layoutY="1.0" mnemonicParsing="false" text="&lt;" />
          <DatePicker fx:id="calendar_date_picker" layoutX="174.0" layoutY="1.0" stylesheets="@../../styles/date_picker.css" />
-         <Button fx:id="next_date_btn" layoutX="494.0" layoutY="1.0" mnemonicParsing="false" text="&gt;" />
       </AnchorPane>
       <AnchorPane prefHeight="186.0" prefWidth="558.0">
          <ProgressIndicator fx:id="users_carbohydrates_indicator" layoutX="387.0" layoutY="51.0" progress="0.0" stylesheets="@../../styles/progress_indicator.css" />

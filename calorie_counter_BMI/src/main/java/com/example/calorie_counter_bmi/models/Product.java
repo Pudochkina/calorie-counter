@@ -85,11 +85,11 @@ public class Product {
 
     public static void main(String[] args) {
         Double amount = 150.0; // вес или объем продукта в граммах или миллилитрах
-        Double caloriesPer100g = 89.0; // калории на 100 г продукта
-        Double proteinPer100g = 1.1; // белки на 100 г продукта
-        Double fatPer100g = 0.3; // жиры на 100 г продукта
-        Double carbsPer100g = 22.8; // углеводы на 100 г продукта
-        Double fiberPer100g = 2.6; // клетчатка на 100 г продукта
+        Double caloriesPer100g = 340.0; // калории на 100 г продукта
+        Double proteinPer100g = 13.0; // белки на 100 г продукта
+        Double fatPer100g = 2.5; // жиры на 100 г продукта
+        Double carbsPer100g = 61.0; // углеводы на 100 г продукта
+        Double fiberPer100g = 11.0; // клетчатка на 100 г продукта
 
         Double[] nutritionValues = calculateNutrition(amount, caloriesPer100g, proteinPer100g, fatPer100g, carbsPer100g, fiberPer100g);
 
