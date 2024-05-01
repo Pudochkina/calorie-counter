@@ -12,7 +12,10 @@ import java.sql.*;
 import javafx.scene.control.Alert;
 
 public class DBUtils {
+    /** id пользователя который зашел в систему
+     * */
     public static int retrid;
+
     /** метод отвечающий за регистрацию пользователя
      * считывает значения введенные пользователем
      * производит валидацию
@@ -447,5 +450,52 @@ public class DBUtils {
             }
         }
         return productSearchObservableList;
+    }
+    /** метод отвечающий за добавление съеденного продукта в бд
+     * */
+    public static void addNewEatenProduct(String date, int product_id, Double amount, String name, Double calories, Double proteins, Double fat, Double carbs, Double fiber){
+        Connection connection = null;
+        PreparedStatement psInsert = null;
+
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/calorie_counter_app", "root", "qwerty1234");
+            psInsert = connection.prepareStatement("INSERT INTO " +
+                        "menu (menu_date, eaten_product_amount, eaten_product_calories, eaten_product_protein, eaten_product_fat, " +
+                    "eaten_product_carbs, eaten_product_fiber, product_id, user_id, eaten_product_name) " +
+                        "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            psInsert.setString(1, date);
+            psInsert.setDouble(2, amount);
+            psInsert.setDouble(3, calories);
+            psInsert.setDouble(4, proteins);
+            psInsert.setDouble(5, fat);
+            psInsert.setDouble(6, carbs);
+            psInsert.setDouble(7, fiber);
+            psInsert.setInt(8, product_id);
+            psInsert.setInt(9, retrid);
+            psInsert.setString(10, name);
+            psInsert.executeUpdate();
+            System.out.println("Eaten Product successfully added!");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Eaten Product successfully added!");
+            alert.show();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (psInsert != null) {
+                try {
+                    psInsert.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }

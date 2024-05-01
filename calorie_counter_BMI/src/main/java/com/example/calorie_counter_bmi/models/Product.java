@@ -1,5 +1,8 @@
 package com.example.calorie_counter_bmi.models;
 
+import java.util.Map;
+import java.util.stream.Collectors;
+
 public class Product {
 
     final Integer id;
@@ -98,6 +101,8 @@ public class Product {
         System.out.println("Употреблено жиров: " + nutritionValues[2] + " г");
         System.out.println("Употреблено углеводов: " + nutritionValues[3] + " г");
         System.out.println("Употреблено клетчатки: " + nutritionValues[4] + " г");
+
+
     }
 
 }

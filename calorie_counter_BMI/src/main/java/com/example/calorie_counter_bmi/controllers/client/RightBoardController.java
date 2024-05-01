@@ -5,6 +5,8 @@ import com.example.calorie_counter_bmi.controllers.RegisterController;
 import com.example.calorie_counter_bmi.models.EatenProduct;
 import com.example.calorie_counter_bmi.models.Product;
 import com.example.calorie_counter_bmi.views.ViewFactory;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -18,7 +20,6 @@ import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.ResourceBundle;
 
 /** контроллер отвечающий за
@@ -35,6 +36,7 @@ import java.util.ResourceBundle;
  * поиск продукта */
 
 public class RightBoardController implements Initializable {
+
     /**
      * имя пользователя
      */
@@ -63,26 +65,6 @@ public class RightBoardController implements Initializable {
      * календарь с выбором даты
      */
     public DatePicker calendar_date_picker;
-    /**
-     * процентаж кол-ва съеденных углеводов
-     */
-    public ProgressIndicator users_carbohydrates_indicator;
-    /**
-     * процентаж кол-ва съеденных белков
-     */
-    public ProgressIndicator users_proteins_indicator;
-    /**
-     * процентаж кол-ва съеденных жиров
-     */
-    public ProgressIndicator users_fat_indicator;
-    /**
-     * процентаж кол-ва съеденной клетчатки
-     */
-    public ProgressIndicator users_fiber_indicator;
-    /**
-     * процентаж кол-ва съеденных калорий в целом
-     */
-    public ProgressIndicator users_total_indicator;
     /**
      * поле в котором отображается текущее набранное кол-во калорий
      */
@@ -150,7 +132,7 @@ public class RightBoardController implements Initializable {
     /**
      * поле в которое вводиться кол-во съеденного продукта
      */
-    public Spinner<Integer> add_new_dish_amount_spinner;
+    public Spinner<Double> add_new_dish_amount_spinner;
     /**
      * поле в которое вводиться продукт для добавления в рацион
      */
@@ -158,7 +140,7 @@ public class RightBoardController implements Initializable {
     /**
      * таблица отображающая список продуктов из бд
      */
-    public TableView list_of_products_table_view;
+    public TableView<Product> list_of_products_table_view;
     /**
      * столбец названия продукта
      */
@@ -166,23 +148,23 @@ public class RightBoardController implements Initializable {
     /**
      * столбец калорийности выбираемого продукта в 100г/100мл
      */
-    public TableColumn calorie_dose_can_eat_product_table_column;
+    public TableColumn<Product, Double> calorie_dose_can_eat_product_table_column;
     /**
      * столбец кол-ва белка выбираемого продукта в 100г/100мл
      */
-    public TableColumn proteins_dose_can_eat_product_table_column;
+    public TableColumn<Product, Double> proteins_dose_can_eat_product_table_column;
     /**
      * столбец кол-ва жиров выбираемого продукта в 100г/100мл
      */
-    public TableColumn fat_dose_can_eat_product_table_column;
+    public TableColumn<Product, Double> fat_dose_can_eat_product_table_column;
     /**
      * столбец кол-ва углеводов выбираемого продукта в 100г/100мл
      */
-    public TableColumn carbohydrates_dose_can_eat_product_table_column;
+    public TableColumn<Product, Double> carbohydrates_dose_can_eat_product_table_column;
     /**
      * столбец кол-ва клетчатки добавляемого продукта в 100г/100мл
      */
-    public TableColumn fiber_dose_can_eat_product_table_column;
+    public TableColumn<Product, Double> fiber_dose_can_eat_product_table_column;
     /**
      * текстовое поле для названия продукта которое пользователь хочет добавить
      */
@@ -227,32 +209,96 @@ public class RightBoardController implements Initializable {
      * переменная для хранения выбранной даты
      */
     String chosenDate;
-
+    /**
+     * переменная для хранения кол-ва съеденного продукта
+     * добавляемого в меню
+     */
+    Double currentSpinnerValue;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         /**
          * обработка date piker
          */
         calendar_date_picker.setValue(LocalDate.now());
         chosenDate = calendar_date_picker.getValue().toString();
         getEatenProductTableView();
-
         calendar_date_picker.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 chosenDate = calendar_date_picker.getValue().toString();
                 getEatenProductTableView();
+                setEatenDoseLabelView();
             }
         });
 
+        /**
+         * обработка spinner в форме добавления съеденного продукта
+         */
+        add_new_dish_amount_spinner.valueProperty().addListener(new ChangeListener<Double>() {
+            @Override
+            public void changed(ObservableValue<? extends Double> observableValue, Double aDouble, Double t1) {
+                currentSpinnerValue = add_new_dish_amount_spinner.getValue();
+            }
+        });
+        /**
+         * обработка формы добавления съеденного продукта
+         */
+        add_new_dish_btn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                if (index == null){
+                    System.out.println("Please choose the product!");
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setContentText("Please choose the product!");
+                    alert.show();
+                }
+                else if (currentSpinnerValue == null){
+                    System.out.println("Please enter the amount!");
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setContentText("Please enter the amount!");
+                    alert.show();
+                }else {
+                    String name = name_can_eat_product_table_column.getCellData(index).toString();
+                    Double cal = calorie_dose_can_eat_product_table_column.getCellData(index);
+                    Double protein = proteins_dose_can_eat_product_table_column.getCellData(index);
+                    Double fat = fat_dose_can_eat_product_table_column.getCellData(index);
+                    Double carbs = carbohydrates_dose_can_eat_product_table_column.getCellData(index);
+                    Double fiber = fiber_dose_can_eat_product_table_column.getCellData(index);
+
+                    Double[] nutritionValues = Product.calculateNutrition(currentSpinnerValue * 100, cal, protein, fat, carbs, fiber);
+                    DBUtils.addNewEatenProduct(chosenDate, product_id, currentSpinnerValue * 100, name, nutritionValues[0], nutritionValues[1], nutritionValues[2], nutritionValues[3], nutritionValues[4]);
+                    getEatenProductTableView();
+                    setEatenDoseLabelView();
+                }
+            }
+        });
         /**
          * обработка кнопки изменить вес
          */
         edit_users_weight_btn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
+                if (!users_weigth_txt_fld.getText().trim().isEmpty() && users_weigth_txt_fld.getText().contains(".")){
                 DBUtils.updateUsersWeight(user_id, Double.valueOf(users_weigth_txt_fld.getText()));
                 setUserInformation(updated_user_id, updated_username_lbl, updated_users_weigth_txt_fld, updated_users_daily_total_label, updated_users_daily_proteins_label, updated_users_daily_carbohydrates_label, updated_users_daily_fat_label, updated_users_daily_fiber_label);
+                }
+                else if (!users_weigth_txt_fld.getText().contains(".")){
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setContentText("Use a dot!");
+                    alert.show();
+                }
+                else if (!RegisterController.checkUsingIsDigitMethod(users_weigth_txt_fld.getText())){
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setContentText("Only numbers allowed!");
+                    alert.show();
+                }
+                else {
+                    System.out.println("Please fill in all information!");
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setContentText("Please fill in all information to sign up!");
+                    alert.show();
+                }
             }
         });
         /**
@@ -313,6 +359,8 @@ public class RightBoardController implements Initializable {
             }
         });
 
+        setEatenDoseLabelView();
+
     }
     /**
      * метод который вызывается в классе DBUtils в методе changeSceneFromLogInToCenterBoard
@@ -321,7 +369,7 @@ public class RightBoardController implements Initializable {
      */
     public void setUserInformation(int id, String name, Double weight, Double calories, Double proteins, Double carbo, Double fat, Double fiber){
         user_id = id;
-        users_daily_total_label.setText("" + calories);
+        users_daily_total_label.setText(calories.toString());
         users_daily_proteins_label.setText("" + proteins);
         users_daily_carbohydrates_label.setText("" + carbo);
         users_daily_fat_label.setText("" + fat);
@@ -424,5 +472,39 @@ public class RightBoardController implements Initializable {
 
         users_daily_menu_table_view.setItems(eatenProductSearchObservableList.filtered(eatenProduct -> eatenProduct.getMenu_date().toString().equals(chosenDate)));
         System.out.println(eatenProductSearchObservableList.isEmpty());
+    }
+    /**
+     * заполняем кол-во съеденных кбжу
+     * за день и по id user
+     * устанавливаем процентаж
+     */
+    public void setEatenDoseLabelView(){
+
+        Double sumCal = eatenProductSearchObservableList.filtered(eatenProduct -> eatenProduct.getMenu_date().toString().equals(chosenDate)).stream()
+                .mapToDouble(x -> x.getEaten_product_calories())
+                .sum();
+        users_current_total_number_label.setText(sumCal.toString());
+
+        Double sumProteins = eatenProductSearchObservableList.filtered(eatenProduct -> eatenProduct.getMenu_date().toString().equals(chosenDate)).stream()
+                .mapToDouble(x -> x.getEaten_product_protein())
+                .sum();
+        users_current_proteins_number_label.setText(sumProteins.toString());
+
+        Double sumFat = eatenProductSearchObservableList.filtered(eatenProduct -> eatenProduct.getMenu_date().toString().equals(chosenDate)).stream()
+                .mapToDouble(x -> x.getEaten_product_fat())
+                .sum();
+        users_current_fat_number_label.setText(sumFat.toString());
+
+        Double sumCarbs = eatenProductSearchObservableList.filtered(eatenProduct -> eatenProduct.getMenu_date().toString().equals(chosenDate)).stream()
+                .mapToDouble(x -> x.getEaten_product_carbs())
+                .sum();
+        users_current_carbohydrates_number_label.setText(sumCarbs.toString());
+
+        Double sumFiber = eatenProductSearchObservableList.filtered(eatenProduct -> eatenProduct.getMenu_date().toString().equals(chosenDate)).stream()
+                .mapToDouble(x -> x.getEaten_product_fiber())
+                .sum();
+        users_current_fiber_number_label.setText(sumFiber.toString());
+
+        System.out.println("Calories: " + sumCal + " Proteins: " + sumProteins + " Fat: " + sumFat + " Carbs: " + sumCarbs + " Fiber: " + sumFiber);
     }
 }
