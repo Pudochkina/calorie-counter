@@ -504,7 +504,5 @@ public class RightBoardController implements Initializable {
                 .mapToDouble(x -> x.getEaten_product_fiber())
                 .sum();
         users_current_fiber_number_label.setText(sumFiber.toString());
-
-        System.out.println("Calories: " + sumCal + " Proteins: " + sumProteins + " Fat: " + sumFat + " Carbs: " + sumCarbs + " Fiber: " + sumFiber);
     }
 }
