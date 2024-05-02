@@ -54,7 +54,7 @@
          <Label fx:id="not_bold_amount" layoutX="325.0" layoutY="237.0" text="Amount" />
          <Button fx:id="add_new_dish_btn" layoutX="328.0" layoutY="335.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="143.0" text="Add" textAlignment="CENTER" />
          <Text layoutX="495.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• 100 g/ml" />
-         <Spinner fx:id="add_new_dish_amount_spinner" amountToStepBy=".1" editable="true" initialValue="0.0" layoutX="325.0" layoutY="269.0" max="100.0" min="0.0" prefHeight="27.0" prefWidth="160.0" stylesheets="@../../styles/spinner.css" />
+         <Spinner fx:id="add_new_dish_amount_spinner" amountToStepBy=".1" editable="true" initialValue="0.1" layoutX="325.0" layoutY="269.0" max="100.0" min="0.1" prefHeight="27.0" prefWidth="160.0" stylesheets="@../../styles/spinner.css" />
          <Label fx:id="add_new_dish" layoutX="361.0" layoutY="117.0" prefHeight="18.0" prefWidth="150.0" text="Add a New Dish" />
       </AnchorPane>
    </VBox>

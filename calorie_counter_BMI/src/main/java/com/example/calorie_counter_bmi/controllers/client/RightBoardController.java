@@ -19,6 +19,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
@@ -267,7 +268,20 @@ public class RightBoardController implements Initializable {
                     Double fiber = fiber_dose_can_eat_product_table_column.getCellData(index);
 
                     Double[] nutritionValues = Product.calculateNutrition(currentSpinnerValue * 100, cal, protein, fat, carbs, fiber);
-                    DBUtils.addNewEatenProduct(chosenDate, product_id, currentSpinnerValue * 100, name, nutritionValues[0], nutritionValues[1], nutritionValues[2], nutritionValues[3], nutritionValues[4]);
+                    try {
+                        boolean res = DBUtils.addNewEatenProduct(chosenDate, product_id, currentSpinnerValue * 100, name, nutritionValues[0], nutritionValues[1], nutritionValues[2], nutritionValues[3], nutritionValues[4]);
+                        if (res){
+                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                            alert.setContentText("Eaten Product successfully added!");
+                            alert.show();
+                        }else {
+                            Alert alert = new Alert(Alert.AlertType.ERROR);
+                            alert.setContentText("An error has occurred!");
+                            alert.show();
+                        }
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
                     getEatenProductTableView();
                     setEatenDoseLabelView();
                 }
@@ -280,8 +294,21 @@ public class RightBoardController implements Initializable {
             @Override
             public void handle(ActionEvent actionEvent) {
                 if (!users_weigth_txt_fld.getText().trim().isEmpty() && users_weigth_txt_fld.getText().contains(".")){
-                DBUtils.updateUsersWeight(user_id, Double.valueOf(users_weigth_txt_fld.getText()));
-                setUserInformation(updated_user_id, updated_username_lbl, updated_users_weigth_txt_fld, updated_users_daily_total_label, updated_users_daily_proteins_label, updated_users_daily_carbohydrates_label, updated_users_daily_fat_label, updated_users_daily_fiber_label);
+                    try {
+                        boolean res = DBUtils.updateUsersWeight(user_id, Double.valueOf(users_weigth_txt_fld.getText()));
+                        if (res){
+                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                            alert.setContentText("Your weight successfully updated!");
+                            alert.show();
+                        } else {
+                            Alert alert = new Alert(Alert.AlertType.ERROR);
+                            alert.setContentText("An error has occurred!");
+                            alert.show();
+                        }
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
+                    setUserInformation(updated_user_id, updated_username_lbl, updated_users_weigth_txt_fld, updated_users_daily_total_label, updated_users_daily_proteins_label, updated_users_daily_carbohydrates_label, updated_users_daily_fat_label, updated_users_daily_fiber_label);
                 }
                 else if (!users_weigth_txt_fld.getText().contains(".")){
                     Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -315,7 +342,22 @@ public class RightBoardController implements Initializable {
                 if (!add_new_product_txt_fld.getText().trim().isEmpty() && !new_product_calories_dose_txt_fld.getText().trim().isEmpty()
                         && !new_product_proteins_dose_txt_fld.getText().trim().isEmpty() && !new_product_fat_dose_txt_fld.getText().trim().isEmpty()
                         && !new_product_carbohydrates_dose_txt_fld.getText().trim().isEmpty() && !new_product_fiber_dose_txt_fld.getText().trim().isEmpty()){
-                    DBUtils.addNewProduct(add_new_product_txt_fld.getText(), Double.valueOf(new_product_calories_dose_txt_fld.getText()), Double.valueOf(new_product_proteins_dose_txt_fld.getText()), Double.valueOf(new_product_fat_dose_txt_fld.getText()), Double.valueOf(new_product_carbohydrates_dose_txt_fld.getText()), Double.valueOf(new_product_fiber_dose_txt_fld.getText()));
+                    try {
+                        boolean res = DBUtils.addNewProduct(add_new_product_txt_fld.getText(), Double.valueOf(new_product_calories_dose_txt_fld.getText()), Double.valueOf(new_product_proteins_dose_txt_fld.getText()), Double.valueOf(new_product_fat_dose_txt_fld.getText()), Double.valueOf(new_product_carbohydrates_dose_txt_fld.getText()), Double.valueOf(new_product_fiber_dose_txt_fld.getText()));
+                        if (res){
+                            System.out.println("Product successfully added!");
+                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                            alert.setContentText("Product successfully added!");
+                            alert.show();
+                        } else {
+                            System.out.println("Product already exists!");
+                            Alert alert = new Alert(Alert.AlertType.ERROR);
+                            alert.setContentText("Product already exists!");
+                            alert.show();
+                        }
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
                     add_new_product_txt_fld.setText("");
                     new_product_calories_dose_txt_fld.setText("");
                     new_product_proteins_dose_txt_fld.setText("");
@@ -483,26 +525,31 @@ public class RightBoardController implements Initializable {
         Double sumCal = eatenProductSearchObservableList.filtered(eatenProduct -> eatenProduct.getMenu_date().toString().equals(chosenDate)).stream()
                 .mapToDouble(x -> x.getEaten_product_calories())
                 .sum();
+        sumCal = Double.valueOf(Math.round(sumCal));
         users_current_total_number_label.setText(sumCal.toString());
 
         Double sumProteins = eatenProductSearchObservableList.filtered(eatenProduct -> eatenProduct.getMenu_date().toString().equals(chosenDate)).stream()
                 .mapToDouble(x -> x.getEaten_product_protein())
                 .sum();
+        sumProteins = Double.valueOf(Math.round(sumProteins));
         users_current_proteins_number_label.setText(sumProteins.toString());
 
         Double sumFat = eatenProductSearchObservableList.filtered(eatenProduct -> eatenProduct.getMenu_date().toString().equals(chosenDate)).stream()
                 .mapToDouble(x -> x.getEaten_product_fat())
                 .sum();
+        sumFat = Double.valueOf(Math.round(sumFat));
         users_current_fat_number_label.setText(sumFat.toString());
 
         Double sumCarbs = eatenProductSearchObservableList.filtered(eatenProduct -> eatenProduct.getMenu_date().toString().equals(chosenDate)).stream()
                 .mapToDouble(x -> x.getEaten_product_carbs())
                 .sum();
+        sumCarbs = Double.valueOf(Math.round(sumCarbs));
         users_current_carbohydrates_number_label.setText(sumCarbs.toString());
 
         Double sumFiber = eatenProductSearchObservableList.filtered(eatenProduct -> eatenProduct.getMenu_date().toString().equals(chosenDate)).stream()
                 .mapToDouble(x -> x.getEaten_product_fiber())
                 .sum();
+        sumFiber = Double.valueOf(Math.round(sumFiber));
         users_current_fiber_number_label.setText(sumFiber.toString());
     }
 }

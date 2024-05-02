@@ -24,11 +24,6 @@ public class ViewFactory {
         createStage(loader);
     }
 
-    public void showProductWindow(){
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/client/users_center_dashboard.fxml"));
-        createStage(loader);
-    }
-
     public void showCenterWindow(){
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/client/right_product_dashboard.fxml"));
         createStage(loader);

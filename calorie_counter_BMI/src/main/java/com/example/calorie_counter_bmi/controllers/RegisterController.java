@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class RegisterController implements Initializable {
@@ -43,7 +44,20 @@ public class RegisterController implements Initializable {
                 currentValue = height_spinner.getValue();
 
                 if (!username_txt_fld.getText().trim().isEmpty() && !password_txt_fld.getText().trim().isEmpty() && !users_weight_txt_fld.getText().trim().isEmpty()){
-                    DBUtils.signUpUser(username_txt_fld.getText(), password_txt_fld.getText(), toggleName, currentValue, Double.valueOf(users_weight_txt_fld.getText()));
+                    try {
+                        boolean res =DBUtils.signUpUser(username_txt_fld.getText(), password_txt_fld.getText(), toggleName, currentValue, Double.valueOf(users_weight_txt_fld.getText()));
+                        if (res){
+                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                            alert.setContentText("User successfully created!");
+                            alert.show();
+                        } else {
+                            Alert alert = new Alert(Alert.AlertType.ERROR);
+                            alert.setContentText("An error has occurred!");
+                            alert.show();
+                        }
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
                 }
                 else if (!checkUsingIsDigitMethod(users_weight_txt_fld.getText())){
                     Alert alert = new Alert(Alert.AlertType.ERROR);

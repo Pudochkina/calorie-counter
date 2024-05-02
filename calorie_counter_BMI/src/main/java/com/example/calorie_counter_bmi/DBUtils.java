@@ -22,7 +22,7 @@ public class DBUtils {
      * рассчитывает кбжу
      * заносит в бд
      * */
-    public static void signUpUser(String username, String password, String gender, int height, Double weight) {
+    public static boolean signUpUser(String username, String password, String gender, int height, Double weight) throws SQLException {
         Connection connection = null;
         PreparedStatement psInsert = null;
         PreparedStatement psCheckUserExist = null;
@@ -57,9 +57,9 @@ public class DBUtils {
                 psInsert.executeUpdate();
 
                 System.out.println("User successfully created!");
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setContentText("User successfully created!");
-                alert.show();
+                //Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                //alert.setContentText("User successfully created!");
+                //alert.show();
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -92,6 +92,11 @@ public class DBUtils {
                     e.printStackTrace();
                 }
             }
+        }
+        if (psInsert.isClosed()){
+            return true;
+        }else {
+            return false;
         }
     }
 
@@ -219,7 +224,7 @@ public class DBUtils {
 
     /** метод отвечающий за добавление нового продукта в бд
      * */
-    public static void addNewProduct(String name, Double calories, Double proteins, Double fat, Double carbs, Double fiber){
+    public static boolean addNewProduct(String name, Double calories, Double proteins, Double fat, Double carbs, Double fiber) throws SQLException {
         Connection connection = null;
         PreparedStatement psInsert = null;
         PreparedStatement psCheckUserExist = null;
@@ -232,9 +237,10 @@ public class DBUtils {
             resultSet = psCheckUserExist.executeQuery();
             if (resultSet.isBeforeFirst()) {
                 System.out.println("Product already exists!");
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("Product already exists!");
-                alert.show();
+                //Alert alert = new Alert(Alert.AlertType.ERROR);
+                //alert.setContentText("Product already exists!");
+                //alert.show();
+                return false;
             } else {
                 psInsert = connection.prepareStatement("INSERT INTO " +
                         "products (product_name, product_cal_perg, product_protein_perg, product_fat_perg, product_carbs_perg, product_fiber_perg) " +
@@ -247,9 +253,9 @@ public class DBUtils {
                 psInsert.setDouble(6, fiber);
                 psInsert.executeUpdate();
                 System.out.println("Product successfully added!");
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setContentText("Product successfully added!");
-                alert.show();
+                //Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                //alert.setContentText("Product successfully added!");
+                //alert.show();
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -276,11 +282,16 @@ public class DBUtils {
                 }
             }
         }
+        if(psInsert.isClosed()){
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /** метод отвечающий за изменение веса пользователя
      * */
-    public static void updateUsersWeight(Integer id, Double weight) {
+    public static boolean updateUsersWeight(Integer id, Double weight) throws SQLException {
         Connection connection = null;
         PreparedStatement psUpdate = null;
         PreparedStatement psCheckUserExist = null;
@@ -313,9 +324,9 @@ public class DBUtils {
                 RightBoardController.setUpdatedUserInformation(id, queryName, weight, dailyIntakeValues[4], dailyIntakeValues[0], dailyIntakeValues[2], dailyIntakeValues[1], dailyIntakeValues[3]);
             }
             System.out.println("Your weight successfully updated!");
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("Your weight successfully updated!");
-            alert.show();
+            //Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            //alert.setContentText("Your weight successfully updated!");
+            //alert.show();
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -348,6 +359,11 @@ public class DBUtils {
                     e.printStackTrace();
                 }
             }
+        }
+        if (psUpdate.isClosed()){
+            return true;
+        } else {
+            return false;
         }
     }
 
@@ -453,7 +469,7 @@ public class DBUtils {
     }
     /** метод отвечающий за добавление съеденного продукта в бд
      * */
-    public static void addNewEatenProduct(String date, int product_id, Double amount, String name, Double calories, Double proteins, Double fat, Double carbs, Double fiber){
+    public static boolean addNewEatenProduct(String date, int product_id, Double amount, String name, Double calories, Double proteins, Double fat, Double carbs, Double fiber) throws SQLException {
         Connection connection = null;
         PreparedStatement psInsert = null;
 
@@ -475,9 +491,9 @@ public class DBUtils {
             psInsert.setString(10, name);
             psInsert.executeUpdate();
             System.out.println("Eaten Product successfully added!");
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("Eaten Product successfully added!");
-            alert.show();
+            //Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            //alert.setContentText("Eaten Product successfully added!");
+            //alert.show();
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -496,6 +512,11 @@ public class DBUtils {
                     e.printStackTrace();
                 }
             }
+        }
+        if (psInsert.isClosed()){
+            return true;
+        } else {
+            return false;
         }
     }
 }
