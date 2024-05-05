@@ -525,31 +525,31 @@ public class RightBoardController implements Initializable {
         Double sumCal = eatenProductSearchObservableList.filtered(eatenProduct -> eatenProduct.getMenu_date().toString().equals(chosenDate)).stream()
                 .mapToDouble(x -> x.getEaten_product_calories())
                 .sum();
-        sumCal = Double.valueOf(Math.round(sumCal));
+        sumCal = Math.round(sumCal * 100) / 100.0;
         users_current_total_number_label.setText(sumCal.toString());
 
         Double sumProteins = eatenProductSearchObservableList.filtered(eatenProduct -> eatenProduct.getMenu_date().toString().equals(chosenDate)).stream()
                 .mapToDouble(x -> x.getEaten_product_protein())
                 .sum();
-        sumProteins = Double.valueOf(Math.round(sumProteins));
+        sumProteins = Math.round(sumProteins * 100) / 100.0;
         users_current_proteins_number_label.setText(sumProteins.toString());
 
         Double sumFat = eatenProductSearchObservableList.filtered(eatenProduct -> eatenProduct.getMenu_date().toString().equals(chosenDate)).stream()
                 .mapToDouble(x -> x.getEaten_product_fat())
                 .sum();
-        sumFat = Double.valueOf(Math.round(sumFat));
+        sumFat = Math.round(sumFat * 100) / 100.0;
         users_current_fat_number_label.setText(sumFat.toString());
 
         Double sumCarbs = eatenProductSearchObservableList.filtered(eatenProduct -> eatenProduct.getMenu_date().toString().equals(chosenDate)).stream()
                 .mapToDouble(x -> x.getEaten_product_carbs())
                 .sum();
-        sumCarbs = Double.valueOf(Math.round(sumCarbs));
+        sumCarbs = Math.round(sumCarbs * 100) / 100.0;
         users_current_carbohydrates_number_label.setText(sumCarbs.toString());
 
         Double sumFiber = eatenProductSearchObservableList.filtered(eatenProduct -> eatenProduct.getMenu_date().toString().equals(chosenDate)).stream()
                 .mapToDouble(x -> x.getEaten_product_fiber())
                 .sum();
-        sumFiber = Double.valueOf(Math.round(sumFiber));
+        sumFiber = Math.round(sumFiber * 100) / 100.0;
         users_current_fiber_number_label.setText(sumFiber.toString());
     }
 }
