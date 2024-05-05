@@ -39,7 +39,7 @@ CREATE TABLE `menu` (
   KEY `user_id` (`user_id`),
   CONSTRAINT `menu_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`),
   CONSTRAINT `menu_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -48,7 +48,7 @@ CREATE TABLE `menu` (
 
 LOCK TABLES `menu` WRITE;
 /*!40000 ALTER TABLE `menu` DISABLE KEYS */;
-INSERT INTO `menu` VALUES (1,'2024-04-30',150,510,19.5,3.75,91.5,16.5,2,2,'Гречка Увелка'),(2,'2024-04-30',150,144,2.25,0.75,31.5,2.55,4,2,'Банан'),(3,'2024-04-29',150,144,2.25,0.75,31.5,2.55,4,2,'Банан'),(4,'2024-05-01',130,217.1,2.6,20.02,2.34,8.84,8,2,'Авокадо, Калифорнийские, сырые'),(5,'2024-05-01',140,518,19.6,4.9,95.2,9.52,1,2,'Хлопья 5 злаков Увелка'),(6,'2024-05-01',110.00000000000001,125.4,22,2.2,3.3,0,7,2,'Творог 2% жирности'),(7,'2024-05-01',110.00000000000001,53.9,3.3,2.2,5.17,0,5,2,'Молоко 2% [Восток Молоко]'),(8,'2024-05-02',30,68.1,1.8,0.3,14.22,0,6,2,'Хлеб Традиционный без Хлебопекарных Дрожжей [Хлебный Дом]'),(9,'2024-04-28',10,16.7,0.2,1.54,0.18,0.68,8,2,'Авокадо, Калифорнийские, сырые');
+INSERT INTO `menu` VALUES (1,'2024-04-30',150,510,19.5,3.75,91.5,16.5,2,2,'Гречка Увелка'),(2,'2024-04-30',150,144,2.25,0.75,31.5,2.55,4,2,'Банан'),(3,'2024-04-29',150,144,2.25,0.75,31.5,2.55,4,2,'Банан'),(4,'2024-05-01',130,217.1,2.6,20.02,2.34,8.84,8,2,'Авокадо, Калифорнийские, сырые'),(5,'2024-05-01',140,518,19.6,4.9,95.2,9.52,1,2,'Хлопья 5 злаков Увелка'),(6,'2024-05-01',110.00000000000001,125.4,22,2.2,3.3,0,7,2,'Творог 2% жирности'),(7,'2024-05-01',110.00000000000001,53.9,3.3,2.2,5.17,0,5,2,'Молоко 2% [Восток Молоко]'),(8,'2024-05-02',30,68.1,1.8,0.3,14.22,0,6,2,'Хлеб Традиционный без Хлебопекарных Дрожжей [Хлебный Дом]'),(9,'2024-04-28',10,16.7,0.2,1.54,0.18,0.68,8,2,'Авокадо, Калифорнийские, сырые'),(10,'2024-05-02',40,62.8,5.08,4.6,0.28,0,9,2,'Яйцо'),(11,'2024-05-02',10,1.4,0.08,0.01,0.25,0.1,10,2,'Огурец'),(12,'2024-05-02',0,0,0,0,0,0,11,2,'Киви'),(13,'2024-05-02',10,2.7,0.07,0,0.58,0.04,14,2,'Арбуз'),(14,'2024-05-02',10,2.7,0.07,0,0.58,0.04,14,2,'Арбуз'),(15,'2024-05-02',20,68,2.6,0.5,12.2,2.2,2,2,'Гречка Увелка');
 /*!40000 ALTER TABLE `menu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -68,7 +68,7 @@ CREATE TABLE `products` (
   `product_carbs_perg` double DEFAULT NULL,
   `product_fiber_perg` double DEFAULT NULL,
   PRIMARY KEY (`product_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -77,7 +77,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'Хлопья 5 злаков Увелка',370,14,3.5,68,6.8),(2,'Гречка Увелка',340,13,2.5,61,11),(4,'Банан',96,1.5,0.5,21,1.7),(5,'Молоко 2% [Восток Молоко]',49,3,2,4.7,0),(6,'Хлеб Традиционный без Хлебопекарных Дрожжей [Хлебный Дом]',227,6,1,47.4,0),(7,'Творог 2% жирности',114,20,2,3,0),(8,'Авокадо, Калифорнийские, сырые',167,2,15.4,1.8,6.8);
+INSERT INTO `products` VALUES (1,'Хлопья 5 злаков Увелка',370,14,3.5,68,6.8),(2,'Гречка Увелка',340,13,2.5,61,11),(4,'Банан',96,1.5,0.5,21,1.7),(5,'Молоко 2% [Восток Молоко]',49,3,2,4.7,0),(6,'Хлеб Традиционный без Хлебопекарных Дрожжей [Хлебный Дом]',227,6,1,47.4,0),(7,'Творог 2% жирности',114,20,2,3,0),(8,'Авокадо, Калифорнийские, сырые',167,2,15.4,1.8,6.8),(9,'Яйцо',157,12.7,11.5,0.7,0),(10,'Огурец',14,0.8,0.1,2.5,1),(11,'Киви',47,0.8,0.4,8.1,3.8),(12,'Яблоко красное',47,0.4,0.4,9.8,0),(13,'Помело',38,0.8,0,8.6,1),(14,'Арбуз',27,0.7,0.01,5.8,0.4);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -101,7 +101,7 @@ CREATE TABLE `users` (
   `user_dt_fiber` double DEFAULT NULL,
   `user_dt_carbo` double DEFAULT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -110,7 +110,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Sofia','sunflower55','female',167,55.7,NULL,NULL,NULL,NULL,NULL),(2,'Ann','camomile44','Female',170,53.5,1464.64,42.8,48.82,25,183.08);
+INSERT INTO `users` VALUES (1,'Sofia','sunflower55','female',167,55.7,NULL,NULL,NULL,NULL,NULL),(2,'Ann','camomile44','Female',170,45.9,1394.36,36.72,46.48,25,174.3),(3,'Tom','tommy123','Male',187,79,2038.46,63.2,67.95,25,254.81),(4,'Greg','greg456','male',176,88,2106.25,70.4,70.21,25,263.28),(5,'Paul','paul77','male',176,85,2066.05,68,68.87,25,258.26);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -123,4 +123,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-02  0:54:25
+-- Dump completed on 2024-05-02 22:28:46

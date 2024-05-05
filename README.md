@@ -4,7 +4,11 @@
 </p>
 <ul>
    <li>
- файл Dump20240502.sql - схема из БД с таблицами пользователи, продукты, съеденные продукты по дням
+ https://testengineer.ru/testirovanie-gui-polnoe-rukovodstvo/  <br>
+     статья по тестированию интерфейса
+  </li>
+   <li>
+ файл Dump20240502(1).sql - схема из БД с таблицами пользователи, продукты, съеденные продукты по дням
   </li>
   <li>
   https://youtu.be/iXdr2m68-GU?si=oy7F3P1qett0egBI  <br>
