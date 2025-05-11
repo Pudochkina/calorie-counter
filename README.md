@@ -19,4 +19,10 @@
 пользователя. 
 5. Система должна рассчитывать количество съеденных КБЖУ. 
 6. Система должна рассчитывать количество КБЖУ, которые 
-необходимо набрать до уровня нормы. 
+необходимо набрать до уровня нормы.
+#### **Скриншоты:**
+![image](https://github.com/user-attachments/assets/6b417b19-93f4-46ae-986b-b1de0f9e66b0)
+![image](https://github.com/user-attachments/assets/a47c5e61-6c0a-4d91-9c4a-12ed8fc549c4)
+![image](https://github.com/user-attachments/assets/c70ec09c-580c-4083-9572-cbae95a42f90)
+
+
